@@ -1,0 +1,18 @@
+{
+    "Cohorts": {
+        "VisitorFirstVisitTime": "Datë Blerjeje",
+        "Cohort": "Shpurë",
+        "Cohorts": "Shpura",
+        "EvolutionGraph": "Grafik Shpurash",
+        "SelectAMetric": "Përzgjidhni një vlerë për shfaqje",
+        "ReturningVisitorsPercent": "Vizitorë të Rikthyer %",
+        "VisitorRetentionTooltip": "Gjatë %1$s, %2$s e vizitorëve që vizituan për herë të parë në %3$s, u rikthyen te sajti juaj.",
+        "GenericMetricTooltip": "Gjatë %1$s, pati %2$s nga shpura %3$s.",
+        "ColumnDocumentation1": "Kjo shtyllë shfaq vlerën e përzgjedhur për periudhën %1$s %2$s pasi vizitorët në shpurë vizituan për herë të parë.",
+        "ColumnDocumentation2": "Data specifike do të ndryshojë bazuar në shpurën, e cila përcaktohet nga rreshti.",
+        "ColumnDocumentationCohortPeriod": "Kjo shtyllë shfaq vlerën për periudhën e shpurës, pra periudhën kur u dukën për herë të parë vizitorë të shpurës.",
+        "VisitsByPeriodOfFirstVisit": "Vizita Sipas Periudhës së Vizitës së Parë",
+        "GetCohortsDocumentation": "Shfaq ecuri për shpura të ndryshme përgjatë një grupi periudhash fill pas shfaqjes së një shpure.",
+        "CohortsOverTime": "Shpura Përgjatë Kohës"
+    }
+}

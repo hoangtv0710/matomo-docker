@@ -1,0 +1,26 @@
+{
+    "name": "MultiChannelConversionAttribution",
+    "description": "Get a clear understanding of how much credit each of your marketing channel is actually responsible for to shift your marketing efforts wisely.",
+    "version": "3.0.7",
+    "theme": false,
+    "require": {
+        "piwik": ">=3.0.0,<4.0.0-b1"
+    },
+    "authors": [
+        {
+            "name": "InnoCraft",
+            "email": "contact@innocraft.com",
+            "homepage": "https://www.innocraft.com"
+        }
+    ],
+    "price": {
+        "base": 75
+    },
+     "preview": {
+    "video_url": "https://www.youtube-nocookie.com/embed/0_f_6sNQMSM",
+    "demo_url": "https://demo.matomo.org/index.php?module=CoreHome&action=index&idSite=62&period=day&date=yesterday#?idSite=62&period=day&date=yesterday&category=Goals_Goals&subcategory=MultiChannelConversionAttribution_MultiAttribution"
+  },
+    "homepage": "https://www.innocraft.com",
+    "license": "InnoCraft EULA",
+    "keywords": ["attribution", "models", "channels", "referrer", "referer", "conversion", "traffic", "ads"]
+}

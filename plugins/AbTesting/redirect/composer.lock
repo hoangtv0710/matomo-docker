@@ -1,0 +1,66 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "11f312b155564475e2166a0de5cb32cf",
+    "packages": [
+        {
+            "name": "innocraft/php-experiments",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/innocraft/php-experiments.git",
+                "reference": "2866bdbc23988418a50d2fd52930d27c2064582f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/innocraft/php-experiments/zipball/2866bdbc23988418a50d2fd52930d27c2064582f",
+                "reference": "2866bdbc23988418a50d2fd52930d27c2064582f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "InnoCraft\\Experiments\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "InnoCraft Ltd",
+                    "email": "contact@innocraft.com"
+                }
+            ],
+            "description": "PHP Experiments is a library that lets you run A/B and split tests",
+            "keywords": [
+                "a-b",
+                "experiments",
+                "split",
+                "testing",
+                "tests"
+            ],
+            "time": "2017-09-26T20:49:02+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.5.9"
+    },
+    "platform-dev": []
+}

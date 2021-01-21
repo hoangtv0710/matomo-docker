@@ -1,0 +1,377 @@
+{% extends 'admin.twig' %}
+
+{% block content %}
+
+<div ng-controller="LoginSamlAdminController as adminController" >
+
+    <div piwik-ajax-form
+     submit-api-method="'LoginSaml.saveSamlConfig'"
+     use-custom-data-binding="true"
+     send-json-payload="true">
+
+        <div piwik-content-block id="samlStatusSettings"
+             content-title="{{ 'LoginSaml_StatusSettings'|translate }}">
+
+            <div class="pull-right" style="margin-top:-82px;">
+                <h3><a href="index.php?module=LoginSaml&action=metadata"
+       target="_blank">{{ 'LoginSaml_METADATALINK'|translate|e('html_attr') }}</a></h3>
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="status"
+                 title="{{ 'LoginSaml_STATUS'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.status }}"
+                 ng-model="ajaxForm.data.status"
+                 inline-help="{{ 'LoginSaml_STATUSDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-save-button saving="ajaxform.isSubmitting" onconfirm="ajaxForm.submitForm()"></div>
+        </div>
+
+
+        <div piwik-content-block id="samlIdPSettings"
+             content-title="{{ 'LoginSaml_IdPSettings'|translate }}">
+
+            <div class="pull-right" style="margin-top:-85px;">
+                <h3><a href="index.php?module=LoginSaml&action=importmetadata"
+       >{{ 'LoginSaml_IMPORTLINK'|translate|e('html_attr') }}</a></h3>
+            </div>
+
+            <div piwik-field uicontrol="text" name="idp_entityid"
+                 title="{{ 'LoginSaml_IdPEntityId'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.idp_entityid }}"
+                 ng-model="ajaxForm.data.idp_entityid"
+                 inline-help="{{ 'LoginSaml_IdPEntityIdDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="text" name="idp_sso"
+                 title="{{ 'LoginSaml_IdPSSOURL'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.idp_sso }}"
+                 ng-model="ajaxForm.data.idp_sso"
+                 inline-help="{{ 'LoginSaml_IdPSSOURLDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="text" name="idp_slo"
+                 title="{{ 'LoginSaml_IdPSLOURL'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.idp_slo }}"
+                 ng-model="ajaxForm.data.idp_slo"
+                 inline-help="{{ 'LoginSaml_IdPSLOURLDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="textarea" name="idp_x509cert"
+                 title="{{ 'LoginSaml_IdPx509CERT'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.idp_x509cert }}"
+                 ng-model="ajaxForm.data.idp_x509cert"
+                 inline-help="{{ 'LoginSaml_IdPx509CERTDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <hr />
+
+            <div piwik-save-button saving="ajaxform.isSubmitting" onconfirm="ajaxForm.submitForm()"></div>
+
+        </div>
+
+        <div piwik-content-block id="samlOptionsSettings"
+             content-title="{{ 'LoginSaml_OptionsSettings'|translate }}">
+
+            <div piwik-field uicontrol="checkbox" name="options_autocreate"
+                 title="{{ 'LoginSaml_OptionsAUTOCREATE'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.options_autocreate }}"
+                 ng-model="ajaxForm.data.options_autocreate"
+                 inline-help="{{ 'LoginSaml_OptionsAUTOCREATEDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="text" name="options_new_user_default_sites_view_access"
+                 title="{{ 'LoginSaml_NewUserDefaultSitesViewAccess'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.options_new_user_default_sites_view_access }}"
+                 ng-model="ajaxForm.data.options_new_user_default_sites_view_access"
+                 inline-help="{{ 'LoginSaml_NewUserDefaultSitesViewAccessDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="select" name="options_identify_field"
+                 title="{{ 'LoginSaml_OptionsIDENTIFYFIELD'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.options_identify_field }}"
+                 ng-model="ajaxForm.data.options_identify_field"
+                 options="{{ identifyFieldOptions|json_encode }}"
+                 inline-help="{{ 'LoginSaml_OptionsIDENTIFYFIELDDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="options_enable_slo"
+                 title="{{ 'LoginSaml_OptionsENABLESLO'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.options_enable_slo }}"
+                 ng-model="ajaxForm.data.options_enable_slo"
+                 inline-help="{{ 'LoginSaml_OptionsENABLESLODescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="options_forcesaml"
+                 title="{{ 'LoginSaml_OptionsFORCESAML'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.options_forcesaml }}"
+                 ng-model="ajaxForm.data.options_forcesaml"
+                 inline-help="{{ 'LoginSaml_OptionsFORCESAMLescription'|translate('?normal', 'index.php')|e('html_attr') }}{{ '<br/><br/>'|e('html_attr') }}{% if ifForceSamlNotSupported %}{{ 'LoginSaml_OptionsForceSAMLVersionDesc'|translate(currentVersion, '3.6.1')|e('html_attr') }}{% endif %}">
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="sync_saml_session_expiration"
+                 title="{{ 'LoginSaml_EnableSamlSessionExpirationSynchronization'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.sync_saml_session_expiration }}"
+                 ng-model="ajaxForm.data.sync_saml_session_expiration"
+                 inline-help="{{ 'LoginSaml_EnableSamlSessionExpirationSynchronizationDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <hr />
+
+            <div piwik-save-button saving="ajaxform.isSubmitting" onconfirm="ajaxForm.submitForm()"></div>
+
+        </div>
+
+        <div piwik-content-block id="samlAttributeMappingSettings"
+             content-title="{{ 'LoginSaml_AttributeMappingSettings'|translate }}">
+
+            <div piwik-field uicontrol="text" name="attributemapping_username"
+                 title="{{ 'LoginSaml_AttributeMappingUSERNAME'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.attributemapping_username }}"
+                 ng-model="ajaxForm.data.attributemapping_username"
+                 inline-help="{{ 'LoginSaml_AttributeMappingUSERNAMEDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="text" name="attributemapping_email"
+                 title="{{ 'LoginSaml_AttributeMappingEMAIL'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.attributemapping_email }}"
+                 ng-model="ajaxForm.data.attributemapping_email"
+                 inline-help="{{ 'LoginSaml_AttributeMappingEMAILDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="text" name="attributemapping_alias"
+                 title="{{ 'LoginSaml_AttributeMappingALIAS'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.attributemapping_alias }}"
+                 ng-model="ajaxForm.data.attributemapping_alias"
+                 inline-help="{{ 'LoginSaml_AttributeMappingALIASDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <hr />
+
+            <div piwik-save-button saving="ajaxform.isSubmitting" onconfirm="ajaxForm.submitForm()"></div>
+        </div>
+
+        <div piwik-content-block id="samlAccessMappingSettings"
+                 content-title="{{ 'LoginSaml_AccessSyncSettings'|translate }}">
+
+            <p>
+                {{ 'LoginSaml_ReadMoreAboutAccessSynchronization'|translate('<a target="_blank" href="https://matomo.org/docs/login-saml/">','</a>')|raw }}
+            </p>
+
+            <div piwik-field uicontrol="checkbox" name="enable_synchronize_access_from_saml"
+                 title="{{ 'LoginSaml_EnableSamlAccessSynchronization'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.enable_synchronize_access_from_saml }}"
+                 ng-model="ajaxForm.data.enable_synchronize_access_from_saml"
+                 inline-help="{{ 'LoginSaml_EnableSamlAccessSynchronizationDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div ng-show="ajaxForm.data.enable_synchronize_access_from_saml">
+                <div piwik-notification context="info">
+                    <strong>{{ 'LoginSaml_ExpectedSamlAttributes'|translate }}</strong><br/>
+                    <br/>
+                    {{ 'LoginSaml_ExpectedSamlAttributesPrelude'|translate }}:<br/>
+                    <br/>
+                    <ul>
+                        <li>{% verbatim %}{{ $parent.$parent.$parent.$parent.$parent.getSampleViewAttribute(ajaxForm.data) }}{% endverbatim %}</li>
+                        <li>{% verbatim %}{{ $parent.$parent.$parent.$parent.$parent.getSampleAdminAttribute(ajaxForm.data) }}{% endverbatim %}</li>
+                        <li>{% verbatim %}{{ $parent.$parent.$parent.$parent.$parent.getSampleSuperuserAttribute(ajaxForm.data) }}{% endverbatim %}</li>
+                    </ul>
+                </div>
+
+                <div piwik-field uicontrol="text" name="saml_view_access_field"
+                     title="{{ 'LoginSaml_SamlViewAccessField'|translate|e('html_attr') }}"
+                     value="{{ samlConfig.saml_view_access_field }}"
+                     ng-model="ajaxForm.data.saml_view_access_field"
+                     inline-help="{{ 'LoginSaml_SamlViewAccessFieldDescription'|translate|e('html_attr') }}">
+                </div>
+
+                <div piwik-field uicontrol="text" name="saml_admin_access_field"
+                     title="{{ 'LoginSaml_SamlAdminAccessField'|translate|e('html_attr') }}"
+                     value="{{ samlConfig.saml_admin_access_field }}"
+                     ng-model="ajaxForm.data.saml_admin_access_field"
+                     inline-help="{{ 'LoginSaml_SamlAdminAccessFieldDescription'|translate|e('html_attr') }}">
+                </div>
+
+                <div piwik-field uicontrol="text" name="saml_superuser_access_field"
+                     title="{{ 'LoginSaml_SamlSuperUserAccessField'|translate|e('html_attr') }}"
+                     value="{{ samlConfig.saml_superuser_access_field }}"
+                     ng-model="ajaxForm.data.saml_superuser_access_field"
+                     inline-help="{{ 'LoginSaml_SamlSuperUserAccessFieldDescription'|translate|e('html_attr') }}">
+                </div>
+
+                <div piwik-field uicontrol="text" name="user_access_attribute_server_specification_delimiter"
+                     title="{{ 'LoginSaml_SamlUserAccessAttributeServerSpecDelimiter'|translate|e('html_attr') }}"
+                     value="{{ samlConfig.user_access_attribute_server_specification_delimiter }}"
+                     ng-model="ajaxForm.data.user_access_attribute_server_specification_delimiter"
+                     inline-help="{{ 'LoginSaml_SamlUserAccessAttributeServerSpecDelimiterDescription'|translate|e('html_attr') }}">
+                </div>
+
+                <div piwik-field uicontrol="text" name="user_access_attribute_server_separator"
+                     title="{{ 'LoginSaml_SamlUserAccessAttributeServerSeparator'|translate|e('html_attr') }}"
+                     value="{{ samlConfig.user_access_attribute_server_separator }}"
+                     ng-model="ajaxForm.data.user_access_attribute_server_separator"
+                     inline-help="{{ 'LoginSaml_SamlUserAccessAttributeServerSeparatorDescription'|translate|e('html_attr') }}">
+                </div>
+
+                <div piwik-field uicontrol="text" name="instance_name"
+                     title="{{ 'LoginSaml_ThisPiwikInstanceName'|translate|e('html_attr') }}"
+                     value="{{ samlConfig.instance_name }}"
+                     ng-model="ajaxForm.data.instance_name"
+                     inline-help="{{ 'LoginSaml_ThisPiwikInstanceNameDescription'|translate|e('html_attr') }}">
+                </div>
+            </div>
+
+            <hr />
+
+            <div piwik-save-button saving="ajaxform.isSubmitting" onconfirm="ajaxForm.submitForm()"></div>
+        </div>
+
+        <div piwik-content-block id="samlAdvancedSettings"
+             content-title="{{ 'LoginSaml_AdvancedSettings'|translate }}">
+
+            <div piwik-field uicontrol="checkbox" name="advanced_strict"
+                 title="{{ 'LoginSaml_AdvancedSTRICT'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_strict }}"
+                 ng-model="ajaxForm.data.advanced_strict"
+                 inline-help="{{ 'LoginSaml_AdvancedSTRICTDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="advanced_debug"
+                 title="{{ 'LoginSaml_AdvancedDEBUG'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_debug }}"
+                 ng-model="ajaxForm.data.advanced_debug"
+                 inline-help="{{ 'LoginSaml_AdvancedDEBUGDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="text" name="advanced_spentityid"
+                 title="{{ 'LoginSaml_AdvancedSPENTITYID'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_spentityid }}"
+                 ng-model="ajaxForm.data.advanced_spentityid"
+                 inline-help="{{ 'LoginSaml_AdvancedSPENTITYIDDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="select" name="advanced_nameidformat"
+                 title="{{ 'LoginSaml_AdvancedNAMEIDFORMAT'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_nameidformat }}"
+                 options="{{ nameidformatOptions|json_encode }}"
+                 ng-model="ajaxForm.data.advanced_nameidformat"
+                 inline-help="{{ 'LoginSaml_AdvancedNAMEIDFORMATDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="advanced_nameid_encrypted"
+                 title="{{ 'LoginSaml_AdvancedNAMEIDENCRYPTED'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_nameid_encrypted }}"
+                 ng-model="ajaxForm.data.advanced_nameid_encrypted"
+                 inline-help="{{ 'LoginSaml_AdvancedNAMEIDENCRYPTEDDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="advanced_authn_request_signed"
+                 title="{{ 'LoginSaml_AdvancedAUTHNREQUESTSIGNED'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_authn_request_signed }}"
+                 ng-model="ajaxForm.data.advanced_authn_request_signed"
+                 inline-help="{{ 'LoginSaml_AdvancedAUTHNREQUESTSIGNEDDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="advanced_logout_request_signed"
+                 title="{{ 'LoginSaml_AdvancedLOGOUTREQUESTSIGNED'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_logout_request_signed }}"
+                 ng-model="ajaxForm.data.advanced_logout_request_signed"
+                 inline-help="{{ 'LoginSaml_AdvancedLOGOUTREQUESTSIGNEDDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="advanced_logout_response_signed"
+                 title="{{ 'LoginSaml_AdvancedLOGOUTRESPONSESIGNED'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_logout_response_signed }}"
+                 ng-model="ajaxForm.data.advanced_logout_response_signed"
+                 inline-help="{{ 'LoginSaml_AdvancedLOGOUTRESPONSESIGNEDDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="advanced_metadata_signed"
+                 title="{{ 'LoginSaml_AdvancedMETADATASIGNED'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_metadata_signed }}"
+                 ng-model="ajaxForm.data.advanced_metadata_signed"
+                 inline-help="{{ 'LoginSaml_AdvancedMETADATASIGNEDDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="advanced_want_message_signed"
+                 title="{{ 'LoginSaml_AdvancedWANTMESSAGESIGNED'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_want_message_signed }}"
+                 ng-model="ajaxForm.data.advanced_want_message_signed"
+                 inline-help="{{ 'LoginSaml_AdvancedWANTMESSAGESIGNEDDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="multiselect" name="advanced_requestedauthncontext"
+                title="{{ 'LoginSaml_AdvancedREQUESTEDAUTHNCONTEXT'|translate|e('html_attr') }}"
+                value="{{ samlConfig.advanced_requestedauthncontext|json_encode }}"
+                options='{{ requestedauthncontextOptions|json_encode }}'
+                ng-model="ajaxForm.data.advanced_requestedauthncontext"
+                inline-help="{{ 'LoginSaml_AdvancedREQUESTEDAUTHNCONTEXTDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="advanced_want_assertion_signed"
+                 title="{{ 'LoginSaml_AdvancedWANTASSERTIONSIGNED'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_want_assertion_signed }}"
+                 ng-model="ajaxForm.data.advanced_want_assertion_signed"
+                 inline-help="{{ 'LoginSaml_AdvancedWANTASSERTIONSIGNEDDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="advanced_want_assertion_encrypted"
+                 title="{{ 'LoginSaml_AdvancedWANTASSERTIONENCRYPTED'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_want_assertion_encrypted }}"
+                 ng-model="ajaxForm.data.advanced_want_assertion_encrypted"
+                 inline-help="{{ 'LoginSaml_AdvancedWANTASSERTIONENCRYPTEDDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="advanced_want_nameid_encrypted"
+                 title="{{ 'LoginSaml_AdvancedWANTNAMEIDENCRYPTED'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_want_nameid_encrypted }}"
+                 ng-model="ajaxForm.data.advanced_want_nameid_encrypted"
+                 inline-help="{{ 'LoginSaml_AdvancedWANTNAMEIDENCRYPTEDDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="advanced_retrieve_parameters_from_server"
+                 title="{{ 'LoginSaml_AdvancedRETRIEVEFROMSERVER'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_retrieve_parameters_from_server }}"
+                 ng-model="ajaxForm.data.advanced_retrieve_parameters_from_server"
+                 inline-help="{{ 'LoginSaml_AdvancedRETRIEVEFROMSERVERDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="textarea" name="advanced_sp_x509cert"
+                 title="{{ 'LoginSaml_AdvancedSPx509CERT'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_sp_x509cert }}"
+                 ng-model="ajaxForm.data.advanced_sp_x509cert"
+                 inline-help="{{ 'LoginSaml_AdvancedSPx509CERTDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="textarea" name="advanced_sp_privatekey"
+                 title="{{ 'LoginSaml_AdvancedSPPRIVATEKEY'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_sp_privatekey }}"
+                 ng-model="ajaxForm.data.advanced_sp_privatekey"
+                 inline-help="{{ 'LoginSaml_AdvancedSPPRIVATEKEYDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="select" name="advanced_signaturealgorithm"
+                 title="{{ 'LoginSaml_AdvancedSIGNATUREALGORITHM'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_signaturealgorithm }}"
+                 options="{{ signaturealgorithmOptions|json_encode }}"
+                 ng-model="ajaxForm.data.advanced_signaturealgorithm"
+                 inline-help="{{ 'LoginSaml_AdvancedSIGNATUREALGORITHMDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="select" name="advanced_digestalgorithm"
+                 title="{{ 'LoginSaml_AdvancedDIGESTALGORITM'|translate|e('html_attr') }}"
+                 value="{{ samlConfig.advanced_digestalgorithm }}"
+                 options="{{ digestalgorithmOptions|json_encode }}"
+                 ng-model="ajaxForm.data.advanced_digestalgorithm"
+                 inline-help="{{ 'LoginSaml_AdvancedDIGESTALGORITMDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <hr />
+
+            <div piwik-save-button saving="ajaxform.isSubmitting" onconfirm="ajaxForm.submitForm()"></div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

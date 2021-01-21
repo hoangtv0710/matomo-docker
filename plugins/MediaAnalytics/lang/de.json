@@ -1,0 +1,25 @@
+{
+    "MediaAnalytics": {
+        "Media": "Medien",
+        "MediaType": "Medientyp",
+        "Names": "Namen",
+        "Hour": "Stunde",
+        "ColumnImpressions": "Impressionen",
+        "VideoTitles": "Video-Titel",
+        "AudioTitles": "Audio-Titel",
+        "MediaDetails": "Medien Details",
+        "NbVideoPlays": "%s abgespielte Videos",
+        "Summary": "Medien Zusammenfassung",
+        "MediaPlayers": "Medien Player",
+        "MediaTitle": "Medien Titel",
+        "MediaTitles": "Medien Titel",
+        "Resolution": "Auflösung",
+        "Fullscreen": "Vollbild",
+        "DimensionTitle": "Titel",
+        "TypeRealTime": "Echtzeit",
+        "TypeAudio": "Audio",
+        "TypeVideo": "Video",
+        "RowActionTooltipTitle": "Details",
+        "SegmentNameMediaTitle": "Medien Titel"
+    }
+}

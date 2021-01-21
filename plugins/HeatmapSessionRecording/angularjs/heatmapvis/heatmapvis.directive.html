@@ -1,0 +1,78 @@
+<div class="heatmapVis">
+    <div class="heatmapSelection">
+
+        <a ng-repeat="heatmapType in heatmapVis.heatmapTypes"
+           class="btn-flat heatmapType{{ heatmapType.key }}"
+           ng-click="heatmapVis.changeHeatmapType(heatmapType.key)"
+           ng-class="{'visActive': heatmapType.key == heatmapVis.heatmapType}"
+        >{{ heatmapType.name }}</a>
+
+        <h4 style="display: inline;margin-left: 20px;margin-right: 10px;">{{ 'DevicesDetection_Device'|translate }}</h4>
+        <a ng-repeat="deviceType in heatmapVis.deviceTypes"
+           class="btn-flat deviceType{{ deviceType.key }}"
+           title="{{ deviceType.tooltip }}"
+           ng-click="heatmapVis.changeDeviceType(deviceType.key)"
+           ng-class="{'visActive': deviceType.key == heatmapVis.deviceType}"
+        ><img ng-src="{{ deviceType.logo }}" height="15"> <span class="numSamples">{{ deviceType.numSamples }}</span></a>
+
+        <div class="legendOuter">
+            <h4>{{ 'Installation_Legend'|translate }}</h4>
+            <div class="legend-area">
+                <span class="min">0</span>
+                <img class="gradient" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAKCAYAAABCHPt+AAAAnklEQVRYR+2WQQqDQBAES5wB/f8/Y05RcMWwSu6JIT0Dm4WlH1DUdHew7/z6WYFhhnGRpnlhAEaQpi/ADbh/np0MiBhGhW+2ymFU+DZfg1EhaoB4jCFuMYYcQKZrXwPEVvm5Og0pcYakBvI35G1jNIZ4jCHexxjSpz9ZFUjAynLbpOvqteaODkm9sloz5JF+ZTVmSAWSu9Qb65AvgDwBQoLgVDlWfAQAAAAASUVORK5CYII=">
+                <span class="max">0</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="iframeRecordingContainer">
+        <div class="heatmapWrapper">
+            <div id="heatmapContainer"></div>
+        </div>
+
+        <div ng-show="heatmapVis.isLoading" class="hsrLoadingOuter"
+             style="height: 400px;"
+             ng-style="{width: (heatmapVis.iframeWidth + 'px')}">
+            <div class="loadingUnderlay"></div>
+            <div class="valign-wrapper loadingInner"><div class="loadingContent">{{ 'General_Loading'|translate }}</div></div>
+        </div>
+
+        <div title="{{ 'HeatmapSessionRecording_AvgAboveFoldDescription'|translate }}" ng-show="heatmapVis.avgFold"
+             class="aboveFoldLine"
+             ng-style="{width: (heatmapVis.iframeWidth + 'px'), top: (heatmapVis.avgFold + 'px')}">
+            <div>{{ 'HeatmapSessionRecording_AvgAboveFoldTitle'|translate:heatmapVis.avgFold }}</div>
+        </div>
+
+        <iframe id="recordingPlayer" ng-src="{{ heatmapVis.embedUrl }}"
+                ng-if="heatmapVis.embedUrl"
+                referrerpolicy="no-referrer"
+                hsr-iframe-load="heatmapVis.onloaded()"
+                width="{{ heatmapVis.iframeWidth }}" height="400"></iframe>
+    </div>
+
+    <div>
+        <div piwik-field uicontrol="select" name="iframewidth"
+             title="{{ 'HeatmapSessionRecording_HeatmapWidth'|translate }}"
+             ng-model="heatmapVis.customIframeWidth"
+             ng-change="heatmapVis.changeIframeWidth(heatmapVis.customIframeWidth, true)"
+             full-width="true"
+             class="customIframeWidth"
+             options='heatmapVis.iframeWidthOptions'>
+        </div>
+
+        <div ng-show="heatmapVis.showDeleteScreenshot">
+            <div piwik-save-button
+                 value="{{'HeatmapSessionRecording_DeleteScreenshot'|translate}}"
+                 style="display: block !important;"
+                 loading="heatmapVis.isLoading"
+                 ng-click="heatmapVis.deleteScreenshot()"></div>
+            </div>
+    </div>
+
+    <div class="ui-confirm" id="confirmDeleteHeatmapScreenshot">
+        <h2>{{ 'HeatmapSessionRecording_DeleteHeatmapScreenshotConfirm'|translate }} </h2>
+        <input role="yes" type="button" value="{{ 'General_Yes'|translate }}"/>
+        <input role="no" type="button" value="{{ 'General_No'|translate }}"/>
+    </div>
+
+</div>

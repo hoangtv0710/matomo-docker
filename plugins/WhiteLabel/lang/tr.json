@@ -1,0 +1,17 @@
+{
+    "WhiteLabel": {
+        "SettingBrandNameTitle": "Özel Marka \/ Ürün Adı",
+        "SettingBrandNameDescription": "Buraya bir değer yazıldığında, kullanıcı arayüzünde bulunan 'Matomo \/ Piwik' markası çoğu yerde yazdığınız marka adı ile değiştirilir. Yalnız süper yöneticlerin görebileceği yardım, uygulama ekleri ve temalar bölümlerinde değişiklik yapılmaz. Ayrıca her uygulama ekinin geliştiricisine teşekkür edildiği için Mağazada da değiştirilmez.",
+        "SettingBrandNameMaxLen": "Marka \/ ürün adı en fazla %s karakter uzunluğunda olabilir.",
+        "SettingBrandNameInvalidChar": "%s karakteri marka ya da ürün adında kullanılamaz.",
+        "SettingRemoveLinksToMatomo": "Yeni: matomo.org bağlantıları kaldırılsın (deneme aşamasında)",
+        "SettingRemoveLinksToMatomoDescription": "Bu seçenek etkinleştirildiğinde, Süper Kullanıcılar dışındaki tüm kullanıcılar için matomo.org bağlantıları kaldırılır. Şu aşamada tüm bağlantıların kaldırılmayacağını ve bazı yerlerde bağlantıların görüntülenebileceğini unutmayın.",
+        "SettingHeaderFontColor": "Başlık Yazı Rengi",
+        "SettingHeaderBackgroundColor": "Başlık Arka Plan Rengi",
+        "SettingColorHelp": "Lütfen \"ffffff\" gibi onaltılık bir renk değeri yazın.",
+        "SettingWhitelabelTrackingEndpoint": "Beyaz etiket izleme bitiş noktası",
+        "SettingWhitelabelTrackingEndpointDescription": "Bu seçenek etkinleştirildiğinde, izleme kodu üretecindeki ve API ile istenilen izleme kodlarında \"piwik.js\" ve \"piwik.php\" dosyaları \"js\/tracker.php\" dosyaları ile değiştirilir. Bu seçenek etkinleştirilirken, sunucunuzu %s isteklerini kabul ettiğinden emin olmanız önerilir.",
+        "SettingMarketplaceOnlySuperUserTitle": "Mağaza yalnız Süper Kullanıcılara görüntülensin",
+        "SettingMarketplaceOnlySuperUserDescription": "Varsayılan olarak oturum açan tüm kullanıcılar Mağazayı görebilir. Bu seçenek etkinleştirildiğinde, Mağaza yalnız Süper Kullanıcılara görüntülenir. Bu seçenek, Mağazanın kullanıcılara görüntülenmesinin istenmediği ancak Mağaza üzerinden kolayca uygulama eki kurmanın ve güncellemenin istendiği durumlarda yararlıdır."
+    }
+}

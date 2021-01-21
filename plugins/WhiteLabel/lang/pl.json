@@ -1,0 +1,17 @@
+{
+    "WhiteLabel": {
+        "SettingBrandNameTitle": "Twoja marka \/ nazwa produktu",
+        "SettingBrandNameDescription": "Po zdefiniowaniu, nazwa aplikacji w UI 'Matomo\/Piwik' zostanie zamieniona w większości miejsc na Twoją markę. Nie zostanie zamienione na stronie pomocy, wtyczek i szablonów, które są widoczne tylko dla Super Użytkowników. Nie zostanie również zamienione w Sklepie, gdzie wyświetlane są nazwy twórców wtyczek.",
+        "SettingBrandNameMaxLen": "Nazwa marki \/ produktu może się składać z maksimum %s znaków.",
+        "SettingBrandNameInvalidChar": "Nie można użyć %s w nazwie produktu lub marki.",
+        "SettingRemoveLinksToMatomo": "Nowość: Usuń linki do matomo.org (eksperymentalnie)",
+        "SettingRemoveLinksToMatomoDescription": "Włączenie spowoduje usunięcie linków do matomo.org dla wszystkich użytkowników poza Super Użytkownikami. Pamiętaj, że na tym etapie nie wszystkie linki muszą zostać zamienione ponieważ część generowana w przeglądarce nadal może być wyświetlana.",
+        "SettingHeaderFontColor": "Kolor czcionki nagłówka",
+        "SettingHeaderBackgroundColor": "Kolor tła nagłówka",
+        "SettingColorHelp": "Proszę wpisz wartość koloru w postaci heksadecymalnej, np. \"ffffff\".",
+        "SettingWhitelabelTrackingEndpoint": "Traker Białej Etykiety",
+        "SettingWhitelabelTrackingEndpointDescription": "Po włączeniu pliki \"piwik.js\" i \"piwik.php\" zostaną zastąpione przez \"js\/tracker.php\" w generatorze kodu śledzącego i dla zapytań o kod śledzący do API. Po włączeniu tej funkcjonalności zaleca się weryfikację, czy Twój serwer pozwala odwiedzić na przykład %s",
+        "SettingMarketplaceOnlySuperUserTitle": "Pokazuj Sklep tylko Super Użytkownikom",
+        "SettingMarketplaceOnlySuperUserDescription": "Domyślnie, Sklep widoczny jest dla każdego zalogowanego użytkownika. Po włączeniu tej opcji strona Sklepu będzie dostępna jedynie dla Super Użytkowników. Ustawienie przydatne jeśli chcesz ukryć Sklep przed użytkownikami i zachować łatwość instalacji i aktualizacji wtyczek z poziomu Sklepu."
+    }
+}

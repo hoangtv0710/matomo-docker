@@ -1,0 +1,17 @@
+{
+    "WhiteLabel": {
+        "SettingBrandNameTitle": "Marchio personalizzato \/ nome del prodotto",
+        "SettingBrandNameDescription": "Se definito, il nome del prodotto \"Matomo \/ Piwik\" nell'interfaccia utente verrà sostituito nella maggior parte dei luoghi con il nome del tuo marchio. Non verrà sostituito nella pagina della guida, nella pagina dei plug-in e dei temi, che sono visibili solo ai super users. Inoltre, non verrà sostituito nel Marketplace per accreditare ciascun singolo creatore di plug-in.",
+        "SettingBrandNameMaxLen": "Sono permessi max. %s caratteri per marchio \/ nome del prodotto.",
+        "SettingBrandNameInvalidChar": "Il carattere %s non è permesso nei nomi del prodotto o del marchio.",
+        "SettingRemoveLinksToMatomo": "Nuovo: Rimuovi i collegamenti a matomo.org (sperimentale)",
+        "SettingRemoveLinksToMatomoDescription": "Se abilitato, rimuoverà i collegamenti a matomo.org per tutti gli utenti eccetto i Super User. Si noti che non tutti i collegamenti possono essere sostituiti al 100% in questa fase poiché potrebbero ancora essere visualizzati alcuni collegamenti generati nel browser.",
+        "SettingHeaderFontColor": "Colore Font per l'Header",
+        "SettingHeaderBackgroundColor": "Colore Background per l'Header",
+        "SettingColorHelp": "Si prega di inserire un codice colore esadecimale, per esempio \"ffffff\".",
+        "SettingWhitelabelTrackingEndpoint": "Endpoint di tracking Whitelabel",
+        "SettingWhitelabelTrackingEndpointDescription": "Se abilitato, \"piwik.js\" e \"piwik.php\" saranno sostituiti da \"js\/tracker.php\" nel generatore del codice di tracciamento e anche quando si richiede il codice di tracciamento tramite API. Quando si abilita questa funzione, si consiglia di verificare che il server consenta richieste a es. %s",
+        "SettingMarketplaceOnlySuperUserTitle": "Mostra il Marketplace solo ai Super Users",
+        "SettingMarketplaceOnlySuperUserDescription": "Per impostazione predefinita, il Marketplace è visibile a qualsiasi utente che ha effettuato l'accesso. Quando attivi questa impostazione, la pagina Marketplace sarà visibile solo agli utenti con accesso Super User. Questo può essere utile se non vuoi mostrare il Marketplace ai tuoi utenti ma vuoi comunque poter installare e aggiornare facilmente i plugin dal Marketplace."
+    }
+}

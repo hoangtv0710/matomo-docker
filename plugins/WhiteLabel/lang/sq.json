@@ -1,0 +1,17 @@
+{
+    "WhiteLabel": {
+        "SettingBrandNameTitle": "Emër vetjak marke \/ produkti",
+        "SettingBrandNameDescription": "Në u përcaktoftë, emri 'Matomo \/ Piwik' për produktin, në UI, do të zëvendësohet në shumicën e vendeve me emrin e markës tuaj. S’ka për t’u zëvendësuar te faqja e ndihmës, te faqja e shtojcave & temave, të cilat janë të dukshme vetëm për superpërdoruesit. S’do të zëvendësohet as te Marketplace, për t’i shprehur falënderimet çdo krijuesi shtojcash.",
+        "SettingBrandNameMaxLen": "Maksimumi i lejuar për emër marke \/ produkti %s shenja.",
+        "SettingBrandNameInvalidChar": "Shenja %s s’lejohet të përdoret te emri i produktit apo markës.",
+        "SettingRemoveLinksToMatomo": "E re: Hiqni lidhjen për te matomo.org (eksperimentale)",
+        "SettingRemoveLinksToMatomoDescription": "Në u aktivizoftë, do të heqë lidhje për te matomo.org për krejt përdoruesit, hiq Superpërdoruesit. Ju lutemi, kini parasysh se, në këtë fazë, s’mund të zëvendësohen 100% e krejt lidhjeve, ngaqë disa lidhje që janë prodhuar te shfletuesi, mund të shfaqen prapëseprapë.",
+        "SettingHeaderFontColor": "Ngjyrë Shkronjash për Kryet",
+        "SettingHeaderBackgroundColor": "Ngjyrë Sfondi për Kryet",
+        "SettingColorHelp": "Ju lutemi, jepni një vlerë gjashtëmbëdhjetëshe ngjyrash, për shembull, \"ffffff\".",
+        "SettingWhitelabelTrackingEndpoint": "Whitelabel tracking endpoint",
+        "SettingWhitelabelTrackingEndpointDescription": "Në u aktivizoftë, \"piwik.js\" dhe \"piwik.php\" do të zëvendësohen nga \"js\/tracker.php\", te prodhuesi i kodit të gjurmimit dhe edhe kur kodi i gjurmimit kërkohet përmes API-t. Kur aktivizohet kjo veçori, këshillohet të testohet nëse shërbyesi juaj lejon kërkesa te, për shembull, %s",
+        "SettingMarketplaceOnlySuperUserTitle": "Marketplace-in shfaqua vetëm Superpërdoruesve",
+        "SettingMarketplaceOnlySuperUserDescription": "Si parazgjedhje, Marketplace-i është i dukshëm për cilindo përdorues që ka bërë hyrjen në llogarinë e vet. Kur aktivizoni këtë rregullim, faqja Marketplace do të jetë e dukshme vetëm për Superpërdorues. Kjo mund të jetë e dobishme nëse s’doni t’ua shfaqni Marketplace-in përdoruesve tuaj, por doni ama të jeni në gjendje të instaloni dhe përditësoni kollaj shtojca që nga Marketplace-i."
+    }
+}

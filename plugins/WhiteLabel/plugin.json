@@ -1,0 +1,28 @@
+{
+    "name": "WhiteLabel",
+    "description": "Give your users and clients access to a more streamline analytics experience that is less confusing and lets your own branding shine.",
+    "version": "3.3.11",
+    "theme": false,
+    "require": {
+        "piwik": ">=3.0.0,<4.0.0-b1"
+    },
+    "authors": [
+        {
+            "name": "InnoCraft",
+            "email": "contact@innocraft.com",
+            "homepage": "https:\/\/www.innocraft.com"
+        }
+    ],
+    "price": {
+        "base": 150
+    },
+    "homepage": "https:\/\/plugins.matomo.org\/WhiteLabel",
+    "license": "InnoCraft EULA",
+    "keywords": [
+        "white label",
+        "branding",
+        "embedding reports",
+        "customer access",
+        "reselling"
+    ]
+}

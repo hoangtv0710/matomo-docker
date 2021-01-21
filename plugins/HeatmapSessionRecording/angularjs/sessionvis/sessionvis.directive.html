@@ -1,0 +1,89 @@
+<div class="sessionRecordingPlayer">
+    <div class="controls">
+        <span class="playerActions">
+            <span ng-show="sessionVis.previousRecordingId"
+                  title="{{ 'HeatmapSessionRecording_PlayerPageViewPrevious'|translate:sessionVis.previousRecordingInfo:'P' }}"
+                  class="playerAction icon-skip-previous" ng-click="sessionVis.loadNewRecording(sessionVis.previousRecordingId)"></span>
+
+            <span class="playerAction icon-fast-rewind" title="{{ 'HeatmapSessionRecording_PlayerRewindFast'|translate:10:'J' }}" ng-click="sessionVis.jumpRelative(10, false)"></span>
+
+            <span ng-show="!sessionVis.isPlaying && !sessionVis.isFinished" class="playerAction icon-play" title="{{ 'HeatmapSessionRecording_PlayerPlay'|translate:'K' }}" ng-click="sessionVis.play()"></span>
+            <span ng-show="!sessionVis.isPlaying && sessionVis.isFinished" class="playerAction icon-replay" title="{{ 'HeatmapSessionRecording_PlayerReplay'|translate:'K' }}" ng-click="sessionVis.replay()"></span>
+            <span ng-show="sessionVis.isPlaying" ng-click="sessionVis.pause()" title="{{ 'HeatmapSessionRecording_PlayerPause'|translate:'K' }}" class="playerAction icon-pause"></span>
+
+            <span class="playerAction icon-fast-forward" title="{{ 'HeatmapSessionRecording_PlayerForwardFast'|translate:10:'L' }}" ng-click="sessionVis.jumpRelative(10, true)"></span>
+            <span ng-show="sessionVis.nextRecordingId" class="playerAction icon-skip-next"
+                  title="{{ 'HeatmapSessionRecording_PlayerPageViewNext'|translate:sessionVis.nextRecordingInfo:'N' }}"
+                  ng-click="sessionVis.loadNewRecording(sessionVis.nextRecordingId)"></span>
+           <span ng-click="sessionVis.increaseReplaySpeed()" title="{{ 'HeatmapSessionRecording_ChangeReplaySpeed'|translate:'S' }}" class="changeReplaySpeed">
+<svg version="1.1"  ng-show="sessionVis.replaySpeed == 4" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 768 768">
+    <path d="M480 576.5v-321h-64.5v129h-63v-129h-64.5v192h127.5v129h64.5zM607.5 127.999c34.5 0 64.5 30 64.5 64.5v447c0 34.5-30 64.5-64.5 64.5h-447c-34.5 0-64.5-30-64.5-64.5v-447c0-34.5 30-64.5 64.5-64.5h447z"></path>
+</svg>
+<svg version="1.1"  ng-show="sessionVis.replaySpeed == 1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 768 768">
+    <path d="M448.5 576.5v-321h-129v64.5h64.5v256.5h64.5zM607.5 127.999c34.5 0 64.5 30 64.5 64.5v447c0 34.5-30 64.5-64.5 64.5h-447c-34.5 0-64.5-30-64.5-64.5v-447c0-34.5 30-64.5 64.5-64.5h447z"></path>
+</svg>
+<svg version="1.1"  ng-show="sessionVis.replaySpeed == 2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 768 768">
+    <path d="M480 384.5v-64.5c0-36-30-64.5-64.5-64.5h-127.5v64.5h127.5v64.5h-63c-34.5 0-64.5 27-64.5 63v129h192v-64.5h-127.5v-64.5h63c34.5 0 64.5-27 64.5-63zM607.5 127.999c34.5 0 64.5 30 64.5 64.5v447c0 34.5-30 64.5-64.5 64.5h-447c-34.5 0-64.5-30-64.5-64.5v-447c0-34.5 30-64.5 64.5-64.5h447z"></path>
+</svg>
+<svg version="1.1"  ng-show="sessionVis.replaySpeed == 6" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 768 768">
+    <path d="M480 320v-64.5h-127.5c-34.5 0-64.5 28.5-64.5 64.5v192c0 36 30 64.5 64.5 64.5h63c34.5 0 64.5-28.5 64.5-64.5v-64.5c0-36-30-63-64.5-63h-63v-64.5h127.5zM607.5 127.999c34.5 0 64.5 30 64.5 64.5v447c0 34.5-30 64.5-64.5 64.5h-447c-34.5 0-64.5-30-64.5-64.5v-447c0-34.5 30-64.5 64.5-64.5h447zM352.5 512v-64.5h63v64.5h-63z"></path>
+</svg>
+
+</span>
+            <span ng-click="sessionVis.toggleSkipPauses()" ng-class="{'active': sessionVis.skipPausesEnabled}"
+                  class="toggleSkipPause"
+                  title="{{ 'HeatmapSessionRecording_ClickToSkipPauses'|translate:sessionVis.skipPausesEnabledText:'B' }}">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 768 768">
+<path d="M223.5 415.5h111l-64.5-63h-46.5v63zM72 72l624 624-42 40.5-88.5-90c-51 36-114 57-181.5 57-177 0-319.5-142.5-319.5-319.5 0-67.5 21-130.5 57-181.5l-90-88.5zM544.5 352.5h-111l-231-231c51-36 114-57 181.5-57 177 0 319.5 142.5 319.5 319.5 0 67.5-21 130.5-57 181.5l-148.5-150h46.5v-63z"></path>
+</svg>
+</span>
+            <span ng-click="sessionVis.toggleAutoPlay()" title="{{ 'HeatmapSessionRecording_AutoPlayNextPageview'|translate:sessionVis.autoplayEnabledText:'A' }}"
+                  class="toggleAutoPlay" ng-class="{'active': sessionVis.autoplayEnabled}"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 768 768">
+<path d="M544.5 609v-129h63v192h-384v96l-127.5-127.5 127.5-127.5v96h321zM223.5 288v129h-63v-192h384v-96l127.5 127.5-127.5 127.5v-96h-321z"></path>
+</svg></span>
+            <span class="duration">{{ 'HeatmapSessionRecording_PlayerDurationXofY'|translate:sessionVis.positionPretty:sessionVis.durationPretty }}</span>
+        </span>
+        <div class="playerHelp">
+            <ul>
+                <li><span class="clickEvent"></span> {{ 'HeatmapSessionRecording_ActivityClick'|translate }}</li>
+                <li><span class="moveEvent"></span> {{ 'HeatmapSessionRecording_ActivityMove'|translate }}</li>
+                <li><span class="scrollEvent"></span> {{ 'HeatmapSessionRecording_ActivityScroll'|translate }}</li>
+                <li><span class="resizeEvent"></span> {{ 'HeatmapSessionRecording_ActivityResize'|translate }}</li>
+                <li><span class="formChange"></span> {{ 'HeatmapSessionRecording_ActivityFormChange'|translate }}</li>
+                <li><span class="mutationEvent"></span> {{ 'HeatmapSessionRecording_ActivityPageChange'|translate }}</li>
+            </ul>
+        </div>
+        <br style="clear: right;" />
+    </div>
+    <div class="timelineOuter" ng-click="sessionVis.seekEvent($event)"
+         ng-style="{width: (sessionVis.replayWidth + 'px')}">
+        <div class="timelineInner"
+             ng-style="{width: (sessionVis.progress + '%')}"></div>
+        <div ng-repeat="clue in sessionVis.clues" title="{{ clue.title }}"
+             ng-style="{left: (clue.left + '%')}" ng-class="clue.type"></div>
+    </div>
+
+    <br />
+    <div ng-show="sessionVis.isLoading" class="hsrLoadingOuter"
+         ng-style="{width: (sessionVis.replayWidth + 'px'), height: (sessionVis.replayHeight + 'px')}">
+        <div class="loadingUnderlay"></div>
+        <div class="valign-wrapper loadingInner"><div class="loadingContent">{{ 'General_Loading'|translate }}</div></div>
+    </div>
+
+    <div class="replayContainerOuter"
+         ng-style="{height: (sessionVis.replayHeight + 'px'),width: (sessionVis.replayWidth + 'px')}"
+         ng-click="sessionVis.togglePlay()">
+    <div class="replayContainerInner" style="transform-origin: 0 0;"
+        ng-style="{transform: ('scale(' + sessionVis.replayScale +')'),'margin-left': (sessionVis.replayMarginLeft + 'px')}">
+    <iframe id="recordingPlayer"
+            hsr-iframe-load="sessionVis.onloaded()"
+            scrolling="no"
+            referrerpolicy="no-referrer"
+            ng-if="sessionVis.embedUrl"
+            ng-src="{{ sessionVis.embedUrl }}"
+            width="{{ sessionVis.recording.viewport_w_px }}"
+            height="{{ sessionVis.recording.viewport_h_px }}"></iframe>
+    </div>
+    </div>
+
+</div>

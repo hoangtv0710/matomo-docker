@@ -1,0 +1,40 @@
+.dataTableVizCohorts {
+  // make first cell fit to content
+  table.dataTable {
+    tr td.label {
+      width:1%;
+      white-space:nowrap;
+
+      > span.label {
+        width: 100%;
+        > span.value {
+          margin-right: 30px;
+          text-overflow: initial;
+        }
+      }
+    }
+
+    // make value centered in table cell
+    tr td.column:not(.label), thead tr th:not(.first) {
+      text-align: center;
+      padding-left: 12px;
+    }
+
+    tr td {
+      border-radius: 0;
+      border-bottom-width: 0 !important;
+    }
+  }
+
+  // metric picker
+  .select-wrapper.cohorts-metric-picker {
+    display: inline-block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .dataTablePaginationControl {
+    display: none;
+  }
+}

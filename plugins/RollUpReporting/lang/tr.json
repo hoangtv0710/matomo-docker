@@ -1,0 +1,22 @@
+{
+    "RollUpReporting": {
+        "RollUpSitePrefixName": "Toplu Rapor",
+        "RollUpMeasurableSettingTitle": "Kaynak ölçülebilirler",
+        "RollUpMeasurableSettingHelp": "Bu ölçülebilir için toplanması gereken kaynak ölçülebilirlerini belirler. Bu toplu rapora bir ölçülebilir (ya da web sitesi) eklemek için ölçülebilir seçiciden bir ölçülebilir seçin. Bir ölçülebiliri kaldırmak için site adının yanındaki eksi simgesine tıklayın. Bu siteyle en az bir ölçülebilir bağlantılı olmalıdır. Atanabilecek ölçülebilirlerden birinde e-ticaret ya da site araması etkin ise, e-ticaret ve site arama otomatik olarak etkinleştirilir. Daha sonra bir ölçülebilir eklediğinizde ya da kaldırdığınızda, önceden üretilmiş raporların yeniden üretilmesi gerekebilir.",
+        "SystemSettingCreationDateSyncTitle": "Eklenme tarihi eşitlensin",
+        "SystemSettingCreationDateSyncHelp": "Bu seçenek etkinleştirildiğinde, bir Toplu Raporun eklenme tarihi otomatik olarak en eski kaynak ölçülebilirin eklenme tarihine ayarlanır. Böylece bir toplu raporun eklenmesinden önceki verileri de kapsaması sağlanabilir. Site trafiği yoğunsa bu raporların arşivlenmesi çok uzun sürebileceğinden bu seçeneği devre dışı bırakmak isteyebilirsiniz.",
+        "ErrorNoSiteAssigned": "Toplu Rapor sitesine en az bir alt site atanması gerekiyor",
+        "ErrorCannotAssignRollUpToAnotherRollUp": "%s Toplu Rapor Site Kodu zaten güncellemekte olduğunuz siteyi kapsadığından bu Toplu Rapora %s Toplu Rapor Site Kodu atanamıyor.",
+        "NoMeasurableAssignedYet": "Henüz bir ölçülebilir atanmamış, lütfen yukarıdaki seçiciden bir ölçülebilir seçin.",
+        "GoalCreationNotPossible": "Bir Toplu Rapor sitesi için bir hedef oluşturulamaz",
+        "FindMeasurables": "Ölçülebilir arama",
+        "SelectMeasurable": "Bu toplu rapora eklenecek bir ölçülebilir seçin",
+        "SelectMeasurablesMatchingSearch": "ya da şu ifadeyi içeren tüm ölçülebilirleri ekleyin",
+        "MatchingSearchNotFound": "%s ifadesine uyan bir ölçülebilir yok.",
+        "MatchingSearchConfirmTitle": "Eşleşen %s ölçülebiliri eklemek istediğinize emin misiniz?",
+        "MatchingSearchConfirmTitleAlreadyAdded": "%s eşleşen ölçülebilir zaten eklenmiş",
+        "MatchingSearchMatchedAdd": "Bu %s ölçülebilir %s ile eşleşiyor ve bu toplu rapora eklenecek",
+        "MatchingSearchMatchedAlreadyAdded": "Bu %s ölçülebilir %s ile eşleşiyor ancak zaten bu toplu rapora eklenmişler",
+        "AllMeasurablesAssigned": "Tüm ölçülebilirler bu Toplu Rapora atanmış. Yeni ekleyeceğiniz ölçülebilirler otomatik olarak bu Toplu Rapora katılacak."
+    }
+}

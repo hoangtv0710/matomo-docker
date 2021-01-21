@@ -1,0 +1,26 @@
+{
+    "name": "TreemapVisualization",
+    "version": "3.1.2",
+    "description": "Visualise any report in Matomo as a Treemap. Click on the Treemap icon in each report to load the visualisation. ",
+    "keywords": ["treemap", "graph", "visualization", "infovis", "jit"],
+    "license": "GPL v3+",
+    "homepage": "https://matomo.org",
+    "require": {
+        "piwik": ">=3.1.2-b2,<4.0.0-b1"
+    },
+    "support": {
+        "email": "hello@matomo.org",
+        "issues": "https://github.com/matomo-org/plugin-TreemapVisualization/issues",
+        "forum": "https://forum.matomo.org",
+        "source": "https://github.com/matomo-org/plugin-TreemapVisualization",
+        "docs": "https://matomo.org/docs/",
+        "rss": "https://matomo.org/feed/"
+    },
+    "authors": [
+        {
+            "name": "Matomo",
+            "email": "hello@matomo.org",
+            "homepage": "https://matomo.org"
+        }
+    ]
+}

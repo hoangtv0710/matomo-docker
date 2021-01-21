@@ -1,0 +1,17 @@
+{
+    "WhiteLabel": {
+        "SettingBrandNameTitle": "Votre marque personnalisée \/ nom de produit",
+        "SettingBrandNameDescription": "Si vous l'avez indiqué, le nom du produit 'Matomo \/ Piwik' sera remplacé dans l'interface par le nom de votre marque. Il ne sera cependant pas remplacé dans les pages d'aide, des plugins et des thèmes, à noter que ces derniers ne sont visibles que par les super utilisateurs. Le nom du produit 'Matomo \/ Piwik' n'est également pas remplacé dans la place de marché qui indique le nom des développeurs des plugins.",
+        "SettingBrandNameMaxLen": "%s caractères maximum autorisés pour la marque \/ nom du produit.",
+        "SettingBrandNameInvalidChar": "Le caractère %s n'est pas autorisé dans le nom du produit ou de la marque.",
+        "SettingRemoveLinksToMatomo": "Nouveau: Supprimer les liens vers matomo.org (expérimental)",
+        "SettingRemoveLinksToMatomoDescription": "Si activée, cette fonction supprimera les liens vers matomo.org pour tous les utilisateurs à l'exception des Super Utilisateurs. Pour le moment, tous les liens ne sont pas remplacés car certains sont parfois générés par votre navigateur.",
+        "SettingHeaderFontColor": "Couleur de la police d'en-tête",
+        "SettingHeaderBackgroundColor": "Couleur de fond de l'en-tête",
+        "SettingColorHelp": "Veuillez entrer un code couleur hexadécimal, par exemple \"ffffff\".",
+        "SettingWhitelabelTrackingEndpoint": "Mettre en marque blanche les éléments de suivi",
+        "SettingWhitelabelTrackingEndpointDescription": "Si activée, \"piwik.js\" et \"piwik.php\" seront remplacés par \"js\/tracker.php\" dans le générateur du code de suivi ainsi que via l'API. Quand cette fonctionnalité est activée, il est recommandé de tester si votre serveur autorise les requêtes vers %s",
+        "SettingMarketplaceOnlySuperUserTitle": "Montrer la place de marché aux Super Utilisateurs uniquement",
+        "SettingMarketplaceOnlySuperUserDescription": "Par défaut, la place de marché est visible pour tous les utilisateurs connectés. Quand vous activez cette fonctionnalité, la place de marché n'est alors visible qu'aux utilisateurs disposant d'un accès Super Utilisateur. Cela peut être utile si vous ne voulez pas montrer la place de marché aux utilisateurs mais que vous souhaitez toujours être en mesure d'installer et de mettre à jour les plugins facilement depuis cette dernière."
+    }
+}

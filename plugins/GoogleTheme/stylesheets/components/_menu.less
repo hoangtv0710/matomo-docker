@@ -1,0 +1,37 @@
+#secondNavBar {
+
+  ul {
+    & > li > ul > li.active > .item {
+      background-color: #e8f0fe !important;
+    }
+
+    li {
+
+      &.active > a {
+        background-color: #e8eaed !important;
+      }
+
+      a {
+        border-radius: 0 50em 50em 0;
+        font-weight: 500;
+        font-size: 14px;
+        //letter-spacing: .25px;
+        color: rgba(0, 0, 0, 0.54);
+        padding: 9px 21px 10px 19px !important;
+
+        &:focus {
+          outline: none !important;
+        }
+
+        &:hover {
+          background-color: #dadce1 !important;
+          transition: .2s ease all;
+        }
+      }
+    }
+  }
+}
+
+#root #secondNavBar .navbar > li > ul li .item {
+  padding-left: 65px !important;
+}

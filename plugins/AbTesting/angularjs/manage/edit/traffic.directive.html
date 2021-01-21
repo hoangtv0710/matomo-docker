@@ -1,0 +1,65 @@
+<div>
+
+    <div piwik-field uicontrol="select" name="percentage_participants"
+         ng-model="editExperiment.experiment.percentage_participants"
+         data-title="{{ 'AbTesting_FieldPercentageParticipantsLabel'|translate }}:"
+         inline-help="{{ 'AbTesting_FieldPercentageParticipantsHelp'|translate }}"
+         ng-change="editExperiment.setValueHasChanged()"
+         options="editExperiment.percentageParticipantsOptions">
+    </div>
+
+    <br />
+
+    <div class="form-group row">
+        <h3 class="col s12">{{ 'AbTesting_FieldPercentageVariationsLabel'|translate }}:</h3>
+    </div>
+
+    <div ng-show="!editExperiment.hasAllocated100PercentToVariations()" class="alert alert-danger">
+        {{ 'AbTesting_ErrorVariationAllocatedNot100Traffic'|translate }}
+    </div>
+
+    <div ng-show="editExperiment.shouldAllocateMoreTrafficToOriginalVariation() && editExperiment.hasAllocated100PercentToVariations()"
+         class="alert alert-warning">
+        {{ 'AbTesting_ErrorVariationAllocatedNotEnoughOriginal'|translate }}
+    </div>
+
+    <div class="form-group row" style="margin-top: 0;">
+        <div class="col s12 m6" style="padding-left: 0;">
+
+            <div class="valign-wrapper">
+                <div piwik-field uicontrol="text" name="percentage" style="display: inline-block;width: calc(100% - 60px);"
+                     class="control_text percentage"
+                     data-disabled="true"
+                     data-title="{{ 'AbTesting_NameOriginalVariation'|translate }}"
+                     placeholder="{{ editExperiment.getDefaultVariationPercentage() }}"
+                     full-width="true">
+                </div>
+                <span>%</span>
+            </div>
+
+            <div ng-repeat="(index, exper) in editExperiment.experiment.variations"
+                 class="valign-wrapper trafficVariation {{ index }}">
+
+                <div piwik-field uicontrol="text" name="percentage" style="display: inline-block;width: calc(100% - 60px);"
+                     class="percentage"
+                     maxlength="3"
+                     data-title="{{ 'AbTesting_Variation'|translate }} &quot;{{ editExperiment.experiment.variations[index].name }}&quot;"
+                     placeholder="{{ editExperiment.getDefaultVariationPercentage() }}"
+                     ng-change="editExperiment.setValueHasChanged()"
+                     ng-model="editExperiment.experiment.variations[index].percentage"
+                     full-width="true">
+                </div>
+                <span>%</span>
+            </div>
+
+        </div>
+        <div class="col s12 m6">
+            <div class="form-help">
+            <span class="inline-help">
+                {{ 'AbTesting_FieldPercentageVariationsHelp'|translate }}
+            </span>
+            </div>
+        </div>
+    </div>
+
+</div>

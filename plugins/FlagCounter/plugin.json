@@ -1,0 +1,24 @@
+{
+  "name": "FlagCounter",
+  "version": "3.0.3",
+  "description": "This plugin allows you to include a simple statistic in your website showing the flags and hits of the countries your visitors came from",
+  "keywords": ["flag", "flagcounter"],
+  "license": "GPL v3+",
+  "homepage": "http://github.com/sgiehl/piwik-plugin-FlagCounter",
+  "require": {
+    "piwik": ">=3.0.0-b1,<4.0.0-b1",
+    "php": ">=5.5.0"
+  },
+  "authors": [
+    {
+      "name": "Stefan Giehl",
+      "email": "stefan@piwik.org",
+      "homepage": "http://github.com/sgiehl"
+    }
+  ],
+  "donate": {
+    "paypal": "stefangiehl@web.de",
+    "flattr": "https://flattr.com/thing/2578144/sgiehl",
+    "bitcoin": "1NxyWNfsjSNQULGxPVJUkgf8D3rpdJEgM6"
+  }
+}

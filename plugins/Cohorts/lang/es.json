@@ -1,0 +1,18 @@
+{
+    "Cohorts": {
+        "VisitorFirstVisitTime": "Fecha de adquisición",
+        "Cohort": "Grupo",
+        "Cohorts": "Grupos",
+        "EvolutionGraph": "Gráficos de los grupos",
+        "SelectAMetric": "Seleccione una métrica a visualizar",
+        "ReturningVisitorsPercent": "Visitantes que regresan %",
+        "VisitorRetentionTooltip": "Durante %1$s, %2$s de los visitantes que primero visitaron en %3$s volvieron a su sitio web.",
+        "GenericMetricTooltip": "Durante %1$s, hubo %2$s del grupo %3$s.",
+        "ColumnDocumentation1": "Esta columna muestra el valor métrico seleccionado para el período que es %1$s%2$s después que los visitantes del grupo hicieron su primera visita.",
+        "ColumnDocumentation2": "La fecha específica variará según el grupo, que está determinada por la misma.",
+        "ColumnDocumentationCohortPeriod": "Esta columna muestra el valor métrico para el período este grupo, es decir, el período en el que aparecen por primera vez los visitantes de este grupo.",
+        "VisitsByPeriodOfFirstVisit": "Visitas por periodo de primera visita",
+        "GetCohortsDocumentation": "Muestra el rendimiento de diferentes grupos en un conjunto de períodos directamente después de que aparece un(a) compañero(a).",
+        "CohortsOverTime": "Grupos a lo largo del tiempo"
+    }
+}

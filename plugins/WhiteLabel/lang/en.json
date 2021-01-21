@@ -1,0 +1,17 @@
+{
+  "WhiteLabel": {
+    "SettingBrandNameTitle": "Custom brand / product name",
+    "SettingBrandNameDescription": "If defined, the product name 'Matomo / Piwik' in the UI will be replaced in most places with your brand name. It will not be replaced in the help page, plugins & themes page, which are only visible to super users. It also won't be replaced in the Marketplace to give credit to each individual plugin creator.",
+    "SettingBrandNameMaxLen": "Max %s characters allowed for brand / product name.",
+    "SettingBrandNameInvalidChar": "The character %s is not allowed to be used in the product or brand name.",
+    "SettingRemoveLinksToMatomo": "New: Remove links to matomo.org (experimental)",
+    "SettingRemoveLinksToMatomoDescription": "If enabled, it will remove links to matomo.org for all users except Super Users. Please note that not 100% all links may be replaced at this stage as some links that are generated in the browser might still be shown.",
+    "SettingHeaderFontColor": "Header Font Color",
+    "SettingHeaderBackgroundColor": "Header Background Color",
+    "SettingColorHelp": "Please enter a hexadecimal color value, for example \"ffffff\".",
+    "SettingWhitelabelTrackingEndpoint": "Whitelabel tracking endpoint",
+    "SettingWhitelabelTrackingEndpointDescription": "If enabled, \"piwik.js\" and \"piwik.php\" will be replaced by \"js/tracker.php\" in the tracking code generator and also when requesting the tracking code via the API. When enabling this feature, it is recommended to test that your server allows requests to eg %s",
+    "SettingMarketplaceOnlySuperUserTitle": "Show Marketplace only to Super Users",
+    "SettingMarketplaceOnlySuperUserDescription": "By default, the Marketplace is visible to any logged in user. When you enable this setting, the Marketplace page will be only visible to users with Super User access. This can be useful if you don't want to show the Marketplace to your users but still want to be able to install and update plugins from the Marketplace easily."
+  }
+}

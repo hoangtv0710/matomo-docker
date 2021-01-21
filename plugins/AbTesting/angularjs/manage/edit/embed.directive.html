@@ -1,0 +1,121 @@
+<div>
+
+    <div ng-show="editExperiment.experiment.status == 'finished'">
+        <div class="alert alert-info">
+            {{ 'AbTesting_ExperimentIsFinishedPleaseRemoveCode'|translate }}
+        </div>
+    </div>
+    <div ng-show="editExperiment.experiment.status == 'running' || editExperiment.experiment.status == 'created'">
+
+        <p>{{ 'AbTesting_ExperimentWillStartFromFirstTrackingRequest'|translate }} </p>
+
+        <div>
+            <h2 class="secondary">{{ 'AbTesting_RunExperimentWithJsClient'|translate }}</h2>
+            <div>
+                <div ng-show="editExperiment.jsIncludeTemplateCode" class="alert alert-warning">
+                    The file "/piwik.js" in your Matomo installation is not writable or the plugin "CustomPiwikJS" is disabled. This means the A/B testing tracker cannot be loaded automatically with the Matomo JavaScript tracker. It is recommended to enable the plugin "CustomPiwikJs" and to make this file writable by executing the following command in your Matomo installation (commany may very depending on the operating system):
+
+                    <br /><br />
+                    <pre><code>chmod 0755 piwik.js</code></pre>
+
+                    If this is not possible you need to include the A/B testing tracker file manually into your website:
+
+                    <br /><br />
+                    <pre><code>{{ editExperiment.jsIncludeTemplateCode }}</code></pre>
+                </div>
+                <p>
+                    You can run experiments within your website or web application. If you use the Matomo JavaScript Tracker on your
+                    website follow the <a href="https://developer.matomo.org/guides/ab-tests/browser" rel="noreferrer" target="_blank">website implementation guide</a> using the generate experiment
+                    code below:
+                </p>
+
+                <pre><code>{{ editExperiment.jsExperimentTemplateCode }}</code></pre>
+
+                <div class="alert alert-info">
+                    If you make any changes on this experiment, you likely have to update the generated code in your HTML code.
+
+                    <br />
+                    <br />
+                    You can test each variation by appending a URL parameter "?pk_ab_test=$variationName".
+                </div>
+            </div>
+
+            <h2 class="secondary">{{ 'AbTesting_RunExperimentWithJsTracker'|translate }}</h2>
+            <div>
+                <p>
+                    You can run experiments using any A/B testing framework of your choice by following the <a href="https://developer.matomo.org/guides/ab-tests/server" target="_blank" rel="noreferrer">server side implementation guide</a>
+                    as long as you are also using the Matomo JavaScript tracker. If you do not use the Matomo JavaScript Tracker, or do want to run
+                    experiments in an app, please read the next section.
+                    <br /><br />
+                    When you run an experiment on a server you need to let Matomo know which variation was activated like this:
+                </p>
+
+                <pre><code>var _paq = _paq || [];
+_paq.push(['AbTesting::enter', {experiment: '{{ editExperiment.experiment.name }}', 'variation': 'myVariationName'}]);
+
+// use 'original' as variation name when original version was shown
+_paq.push(['AbTesting::enter', {experiment: '{{ editExperiment.experiment.name }}', 'variation': 'original'}]);
+
+// to hide the experiment name you can also use the ID of the experiment
+_paq.push(['AbTesting::enter', {experiment: '{{ editExperiment.experiment.idexperiment }}', 'variation': 'original'}]);</code></pre>
+
+            </div>
+            <h2 class="secondary">{{ 'AbTesting_RunExperimentWithOtherSDK'|translate }}</h2>
+            <div>
+                <p>You can run experiments using any A/B testing framework of your choice by following the <a href="https://developer.matomo.org/guides/ab-tests/apps" target="_blank" rel="noreferrer">apps implementation guide</a>
+                    when you are using a Matomo Tracker SDK (eg Android SDK or iOS SDK, C#, Java, Python) to track your application.
+                    We provide for example an <a href="https://github.com/innocraft/php-experiments" target="_blank" rel="noreferrer">A/B and split test framework for PHP</a>.
+                    When you run an experiment in an app you need to let Matomo know which variation was activated by tracking an event.</p>
+
+                <p>To track an event with the Matomo JavaScript Tracker call: (useful if you want to use a different JavaScript A/B testing framework)</p>
+                <pre><code>_paq.push(['trackEvent', 'abtesting', '{{ editExperiment.experiment.name }}', 'name of variation']);
+
+// use 'original' as variation name when original version was shown
+_paq.push(['trackEvent', 'abtesting', '{{ editExperiment.experiment.name }}', 'original']);</code></pre>
+
+        <p>To track an event with the Matomo PHP Tracker:</p>
+        <pre><code>$tracker->doTrackEvent('abtesting', '{{ editExperiment.experiment.name }}', 'name of variation');
+
+// use 'original' as variation name when original version was shown
+$tracker->doTrackEvent('abtesting', '{{ editExperiment.experiment.name }}', 'original');</code></pre>
+
+                <div class="alert alert-info">
+                    You can use any iOS, Android, Java, Python, C# tracker. Available trackers can be found in the
+                    <a href="https://developer.matomo.org/guides/tracking-api-clients" target="_blank" rel="noreferrer">Tracking API Clients guide</a>
+                    and in the list of all the <a href="https://matomo.org/integrate/" target="_blank" rel="noreferrer">Matomo integrations</a>.
+                    If there is no tracker for your application available yet, you can use the
+                    <a href="https://developer.matomo.org/api-reference/tracking-api" target="_blank" rel="noreferrer">HTTP Tracking API</a>
+                    to track an event using the parameters <code>&e_c=abtesting&e_a={{ editExperiment.experiment.name }}&e_n=variationName</code>.
+                </div>
+            </div>
+            <h2 class="secondary">{{ 'AbTesting_RunExperimentWithEmailCampaign'|translate }}</h2>
+            <div>
+                <p>
+                    You can track how different campaigns affect the browsing behaviour on your website by following the <a href="https://developer.matomo.org/guides/ab-tests/campaign" target="_blank" rel="noreferrer">campaign implementation guide</a>
+                    if the website is also using the Matomo JavaScript tracking code.
+                    To let Matomo know which experiment was applied in an email or ad campaign, add the following two URL parameters to your URL:
+                </p>
+
+                <pre><code>&pk_abe={{ editExperiment.experiment.name }}&pk_abv=myVariationName
+
+// use 'original' as variation name when original version was shown
+&pk_abe={{ editExperiment.experiment.name }}&pk_abv=original
+
+// you can also use the experiment ID as experiment name if you do not want to have the name in the URL
+&pk_abe={{ editExperiment.experiment.idexperiment }}&pk_abv=myVariationName</code></pre>
+
+                <h2 class="secondary">{{ 'AbTesting_NeedHelp'|translate }}</h2>
+
+                Several guides for running experiments are available on our
+                <a href="https://developer.matomo.org/integration" target="_blank" rel="noreferrer">developer zone</a>.
+                <br /><br />
+               As we want to provide more libraries please let us know your use case and using
+                which language you want to run experiments. This helps us on deciding which libraries we should focus on first.
+                If you are keen to implement an A/B testing framework or maybe you have already done this, let us know:
+                <a href="https://matomo.org/contact/" target="_blank" rel="noreferrer">Get in touch</a>
+
+            </div>
+        </div>
+    </div>
+
+</div>

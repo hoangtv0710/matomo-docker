@@ -1,0 +1,18 @@
+{
+    "Cohorts": {
+        "VisitorFirstVisitTime": "Aankoopdatum",
+        "Cohort": "Cohort",
+        "Cohorts": "Cohorten",
+        "EvolutionGraph": "Cohorten Grafiek",
+        "SelectAMetric": "Selecteer een metric om te tonen",
+        "ReturningVisitorsPercent": "Terugkerende Bezoekers %",
+        "VisitorRetentionTooltip": "Gedurende %1$s, %2$s van de de bezoekers die het voor het eerst bezochten in %3$s kwamen terug naar je website.",
+        "GenericMetricTooltip": "Gedurende %1$s, waren er %2$s van de %3$s cohort.",
+        "ColumnDocumentation1": "Deze kolom toont de geselecteerde metric waarde voor de periode %1$s%2$s nadat de bezoekers in het cohort voor het eerst hebben bezocht.",
+        "ColumnDocumentation2": "De specifieke datum zal variëren op basis van het cohort, dat wordt bepaald door de rij.",
+        "ColumnDocumentationCohortPeriod": "In deze kolom wordt de metrische waarde voor de cohortperiode weergegeven, bijvoorbeeld de periode waarin de cohort bezoekers voor het eerst worden weergegeven.",
+        "VisitsByPeriodOfFirstVisit": "Bezoeken Per Periode Van Eerste Bezoek",
+        "GetCohortsDocumentation": "Toont de prestaties van verschillende cohorten gedurende een reeks perioden direct nadat een cohort wordt weergegeven.",
+        "CohortsOverTime": "Cohorten na verloop van tijd"
+    }
+}

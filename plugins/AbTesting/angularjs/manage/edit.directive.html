@@ -1,0 +1,163 @@
+<div class="editExperiment"
+     piwik-content-block
+     content-title="{{ editExperiment.editTitle|translate:(editExperiment.experiment.name ? ('&quot;' + editExperiment.experiment.name + '&quot;') : '') }}">
+
+    <p ng-show="editExperiment.create">{{ 'AbTesting_FormCreateExperimentIntro'|translate }}</p>
+
+    <p ng-show="editExperiment.model.isLoading">
+        <span class="loadingPiwik"><img src="plugins/Morpheus/images/loading-blue.gif"/> {{ 'General_LoadingData'|translate }}</span>
+    </p>
+
+    <p ng-show="editExperiment.model.isUpdating">
+        <span class="loadingPiwik"><img src="plugins/Morpheus/images/loading-blue.gif"/> {{ 'AbTesting_UpdatingData'|translate }}</span>
+    </p>
+
+    <div class="alert alert-warning"
+         ng-show="editExperiment.edit && editExperiment.experiment.status == 'running'">
+          {{ 'AbTesting_ExperimentRunningInfo1'|translate }}
+          {{ editExperiment.experiment.start_date }} (UTC)<span
+            ng-show="editExperiment.experiment.end_date">
+                {{ 'AbTesting_ExperimentRunningInfo2'|translate }} {{ editExperiment.experiment.end_date }} (UTC)</span>.
+          {{ 'AbTesting_ExperimentRunningInfo3'|translate }}
+    </div>
+
+    <div class="alert alert-warning"
+         ng-show="editExperiment.edit && editExperiment.experiment.status == 'finished'">
+        {{ 'AbTesting_ExperimentFinishedInfo1'|translate }}
+        <br />
+        {{ 'AbTesting_ExperimentFinishedInfo2'|translate }}
+    </div>
+
+    <div class="alert alert-warning"
+         ng-show="editExperiment.edit && editExperiment.experiment.status == 'archived'">
+        {{ 'AbTesting_ErrorExperimentCannotBeUpdatedBecauseArchived'|translate }}
+    </div>
+
+    <div ng-show="editExperiment.edit && editExperiment.experiment.status && !editExperiment.confirmedEdit">
+
+        {{ 'AbTesting_RelatedActions'|translate }}:
+        <ul class="optionsUnconfirmedEditExperiment">
+            <li class="actionViewReport">
+                <a target="_blank"
+                   href="?module=CoreHome&action=index&idSite={{editExperiment.experiment.idsite}}&period=range&date={{editExperiment.experiment.date_range_string}}#?category=AbTesting_Experiments&idSite={{editExperiment.experiment.idsite}}&period=range&date={{editExperiment.experiment.dateRangeString}}&subcategory={{editExperiment.experiment.idexperiment}}"
+                ><span class="icon-show"></span> {{ 'AbTesting_ActionViewReport'|translate }}</a>
+            </li>
+
+            <li class="actionFinishExperiment">
+                <a href="javascript:;"
+                   ng-click="editExperiment.finishExperiment()" ng-show="editExperiment.experiment.status=='running'">
+                    <span class="abtestingicon-stop"></span> {{ 'AbTesting_ActionFinishExperiment'|translate }}
+                </a>
+            </li>
+
+            <li class="actionEditAnyway">
+                <a href="javascript:;" ng-click="editExperiment.confirmedEdit = true">
+                    <span class="icon-edit"></span> {{ 'AbTesting_ActionEditExperimentAnyway'|translate }}
+                </a>
+            </li>
+
+            <li class="actionCancel">
+                <span piwikab-bind-html-compile="'General_OrCancel'|translate:'<a ng-click=\'editExperiment.cancel()\'>':'</a>'"></span>
+            </li>
+
+        </ul>
+    </div>
+
+    <div ng-show="editExperiment.confirmedEdit && editExperiment.experiment.status == 'created' && editExperiment.experiment.start_date"
+         class="alert alert-warning">
+        {{ 'AbTesting_ExperimentCreatedInfo1'|translate }} {{ editExperiment.experiment.start_date }}<span
+            ng-show="editExperiment.experiment.end_date"> {{ 'AbTesting_ExperimentCreatedInfo2'|translate }} {{ editExperiment.experiment.end_date }}</span>.
+        {{ 'AbTesting_ExperimentCreatedInfo3'|translate }}
+    </div>
+
+    <form ng-submit="editExperiment.confirmedEdit ? editExperiment.updateExperiment() : editExperiment.createExperiment()">
+        <div class="row" ng-show="!editExperiment.model.isLoading && (editExperiment.confirmedEdit || editExperiment.create)">
+            <div class="col m2 entityList" ng-show="editExperiment.confirmedEdit">
+                <ul class="listCircle">
+                    <li ng-class="{active: editExperiment.action=='basic'}" class="menuDefinition">
+                        <a href="javascript:;"
+                           ng-click="editExperiment.action='basic'">{{ 'AbTesting_Definition'|translate }}</a></li>
+                    <li ng-class="{active: editExperiment.action=='metrics'}" class="menuSuccessMetric">
+                        <a href="javascript:;"
+                           ng-click="editExperiment.action='metrics'">{{ 'AbTesting_SuccessMetrics'|translate }}</a>
+                    </li>
+                    <li ng-class="{active: editExperiment.action=='conditions'}" class="menuSuccessConditions">
+                        <a href="javascript:;"
+                           ng-click="editExperiment.action='conditions'">{{ 'AbTesting_SuccessConditions'|translate }}</a>
+                    </li>
+                    <li ng-class="{active: editExperiment.action=='targets'}" class="menuTargets">
+                        <a href="javascript:;"
+                           ng-click="editExperiment.action='targets'">{{ 'AbTesting_TargetPages'|translate }}</a></li>
+                    <li ng-class="{'disabled': !editExperiment.experiment.variations[0].name, active: editExperiment.action=='traffic'}"
+                        class="menuTraffic"
+                    >
+                        <a href="javascript:;"
+                           ng-click="editExperiment.experiment.variations[0].name ? editExperiment.action='traffic' : ''">{{ 'AbTesting_TrafficAllocation'|translate }}</a>
+                    </li>
+                    <li ng-class="{active: editExperiment.action=='redirects'}" class="menuRedirects">
+                        <a href="javascript:;"
+                           ng-click="editExperiment.action='redirects'">{{ 'AbTesting_Redirects'|translate }}</a>
+                    </li>
+                    <li ng-class="{active: editExperiment.action=='schedule'}"
+                        class="menuSchedule">
+                        <a href="javascript:;"
+                           ng-click="editExperiment.action='schedule'">{{ 'AbTesting_Schedule'|translate }}</a></li>
+                    <li ng-class="{active: editExperiment.action=='embed'}"
+                        class="menuEmbed">
+                        <a href="javascript:;"
+                           ng-show="editExperiment.experiment.status !== 'archived'"
+                           ng-click="editExperiment.showEmbedAction()">{{ 'AbTesting_EmbedCode'|translate }}</a></li>
+                </ul>
+                <br />
+                <br />
+                <br />
+                <br />
+                <div ng-show="editExperiment.experiment.status !== 'archived'">
+                    <input class="btn update" type="submit"
+                           ng-disabled="editExperiment.model.isUpdating || !editExperiment.isDirty"
+                           value="{{ 'CoreUpdater_UpdateTitle'|translate }}">
+
+                    <div class='entityCancel'>
+                        <span piwikab-bind-html-compile="'General_OrCancel'|translate:'<a ng-click=\'editExperiment.cancel()\'>':'</a>'"></span>
+                    </div>
+                </div>
+                <div ng-show="editExperiment.experiment.status === 'archived'">
+                    <div class='entityCancel'>
+                        <a class="btn" ng-click="editExperiment.cancel()">{{ 'AbTesting_NavigationBack'|translate }}</a>
+                    </div>
+                </div>
+
+            </div>
+            <div ng-class="{'col m10 editExperimentArea': editExperiment.confirmedEdit, 'col m12 createExperimentArea': editExperiment.create}">
+
+                <div class="row" ng-show="!editExperiment.model.isLoading">
+                    <div class="col-md-12">
+                        <div piwik-experiment-edit-basic ng-show="editExperiment.action == 'basic'"></div>
+                        <div piwik-experiment-edit-metrics ng-show="editExperiment.action == 'metrics'"></div>
+                        <div piwik-experiment-edit-conditions ng-show="editExperiment.action == 'conditions'"></div>
+                        <div piwik-experiment-edit-traffic ng-show="editExperiment.action == 'traffic'"></div>
+                        <div piwik-experiment-edit-targets ng-show="editExperiment.action == 'targets'"></div>
+                        <div piwik-experiment-edit-redirects ng-show="editExperiment.action == 'redirects'"></div>
+                        <div piwik-experiment-edit-schedule ng-show="editExperiment.action == 'schedule'"></div>
+                        <div piwik-experiment-edit-embed ng-show="editExperiment.action == 'embed'"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="ui-confirm" id="confirmUpdateStartExperiment">
+        <h2>{{ 'AbTesting_ConfirmUpdateStartsExperiment'|translate }}</h2>
+        <input role="yes" type="button" value="{{ 'General_Yes'|translate }}"/>
+        <input role="no" type="button" value="{{ 'General_No'|translate }}"/>
+    </div>
+    <div class="ui-confirm" id="confirmFinishExperiment">
+        <h2>{{ 'AbTesting_ConfirmFinishExperiment'|translate }}</h2>
+        <input role="yes" type="button" value="{{ 'General_Yes'|translate }}"/>
+        <input role="no" type="button" value="{{ 'General_No'|translate }}"/>
+    </div>
+    <div class="ui-confirm" id="updateExperimentNeededToEmbed">
+        <h2>{{ 'AbTesting_ExperimentRequiresUpdateBeforeViewEmbedCode'|translate }}</h2>
+        <input role="ok" type="button" value="{{ 'General_Ok'|translate }}"/>
+    </div>
+</div>

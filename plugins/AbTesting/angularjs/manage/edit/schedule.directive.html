@@ -1,0 +1,94 @@
+<div>
+
+    <div class="form-group">
+        {{ 'AbTesting_FormScheduleIntroduction'|translate }}
+    </div>
+
+    <div class="form-group row scheduleExperiment">
+
+        <div class="col s12 m6">
+            <div class="row">
+                <div class="col s12">
+                    <label for="start_date_date" class="active">{{ 'AbTesting_FieldScheduleExperimentStartLabel'|translate }}:</label>
+                </div>
+                <div class="col s12 m6 input-field">
+                    <input type="text" ng-model="editExperiment.experiment.start_date_date"
+                           name="start_date_date"
+                           ng-change="editExperiment.setValueHasChanged();editExperiment.onAnyDateChange();"
+                           ng-disabled="editExperiment.experiment.status != 'created'"
+                           class="experimentStartDateInput">
+
+                </div>
+                <div class="col s12 m6 input-field">
+                    <input type="text" ng-model="editExperiment.experiment.start_date_time"
+                           ng-change="editExperiment.setValueHasChanged();editExperiment.onAnyDateChange();"
+                           ng-disabled="editExperiment.experiment.status != 'created' || !editExperiment.experiment.start_date_date"
+                           class="experimentStartTimeInput">
+                </div>
+
+                <div class="col s12">
+                    <p ng-show="editExperiment.experiment.start_date|toLocalTime:1">
+                        {{ 'AbTesting_EqualsDateInYourTimezone'|translate }}
+                        <br />
+                        {{ editExperiment.experiment.start_date|toLocalTime:'1' }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6 ">
+            <div class="form-help">
+            <span class="inline-help">
+                <span>
+                    <span ng-bind-html="'AbTesting_FieldScheduleExperimentStartHelp'|translate:'<strong>':'</strong>'"></span>
+                    <br />
+                    {{ 'AbTesting_CurrentTimeInUTC'|translate }}
+                    <strong class="currentDate" ng-show="editExperiment.utcTime">{{ editExperiment.utcTime }}</strong>.
+                </span>
+            </span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group row scheduleExperiment">
+        <div class="col s12 m6">
+            <div class="row">
+                <div class="col s12">
+                    <label for="start_date_date" class="active">{{ 'AbTesting_FieldScheduleExperimentFinishLabel'|translate }}:</label>
+                </div>
+                <div class="col s12 m6 input-field">
+                    <input type="text"
+                           ng-model="editExperiment.experiment.end_date_date"
+                           class="experimentEndDateInput"
+                           ng-change="editExperiment.setValueHasChanged();editExperiment.onAnyDateChange();">
+                </div>
+                <div class="col s12 m6 input-field">
+                    <input type="text"
+                           ng-model="editExperiment.experiment.end_date_time"
+                           class="experimentEndTimeInput"
+                           ng-disabled="!editExperiment.experiment.end_date_date"
+                           ng-change="editExperiment.setValueHasChanged();editExperiment.onAnyDateChange();">
+                </div>
+                <div class="col s12">
+                    <p ng-show="editExperiment.experiment.end_date|toLocalTime:1">
+                        {{ 'AbTesting_EqualsDateInYourTimezone'|translate }}<br />{{ editExperiment.experiment.end_date|toLocalTime:'1' }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <div class="form-help">
+            <span class="inline-help">
+                <span>
+                    <span ng-bind-html="'AbTesting_FieldScheduleExperimentFinishHelp'|translate:'<strong>':'</strong>'"></span>
+                    <br />
+                    {{ 'AbTesting_CurrentTimeInUTC'|translate }}
+                    <strong class="currentDate" ng-show="editExperiment.utcTime">{{ editExperiment.utcTime }}</strong>.
+                </span>
+            </span>
+            </div>
+        </div>
+
+    </div>
+
+</div>

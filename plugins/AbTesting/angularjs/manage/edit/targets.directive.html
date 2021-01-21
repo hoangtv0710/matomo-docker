@@ -1,0 +1,86 @@
+<div>
+
+    <div class="row">
+
+        <div class="col s12">
+            <div piwik-target-test
+                 included-targets="editExperiment.experiment.included_targets"
+                 excluded-targets="editExperiment.experiment.excluded_targets"></div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+
+        <div class="col s12">
+            <h3>{{ 'AbTesting_FieldIncludedTargetsLabel'|translate }}:</h3>
+        </div>
+
+        <div class="col s12 m6" style="padding-left: 0;">
+            <div ng-repeat="(index, url) in editExperiment.experiment.included_targets" class="includedTargets {{ index }} multiple">
+
+                <div piwik-experiment-url-target
+                     url-target="editExperiment.experiment.included_targets[index]"
+                     on-add-url="editExperiment.addIncludedTarget()"
+                     on-remove-url="editExperiment.removeIncludedTarget(index)"
+                     on-any-change="editExperiment.setValueHasChanged()"
+                     allow-any="1"
+                     disable-if-no-value="index > 0"
+                     can-be-removed="index > 0"
+                ></div>
+                <hr />
+
+            </div>
+        </div>
+
+        <div class="col s12 m6">
+            <div class="form-help">
+                <span class="inline-help">
+                    {{ 'AbTesting_FieldIncludedTargetsHelp2'|translate }}
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+
+        <div class="col s12">
+            <h3>{{ 'AbTesting_FieldExcludedTargetsLabel'|translate }}:</h3>
+        </div>
+
+        <div class="col s12 m6" style="padding-left: 0;">
+            <div ng-repeat="(index, url) in editExperiment.experiment.excluded_targets" class="excludedTargets {{ index }} multiple">
+                <div piwik-experiment-url-target
+                     disable-if-no-value="true"
+                     allow-any="0"
+                     url-target="editExperiment.experiment.excluded_targets[index]"
+                     on-add-url="editExperiment.addExcludedTarget()"
+                     on-remove-url="editExperiment.removeExcludedTarget(index)"
+                     on-any-change="editExperiment.setValueHasChanged()"
+                     can-be-removed="index > 0"
+                ></div>
+                <hr />
+            </div>
+        </div>
+
+        <div class="col s12 m6">
+            <div class="form-help">
+                <span class="inline-help">
+                    {{ 'AbTesting_FieldExcludedTargetsHelp'|translate }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-info">
+        <strong>{{ 'AbTesting_TargetComparisons'|translate }}</strong>
+        <ul>
+            <li><strong>{{ 'AbTesting_TargetTypeEqualsSimple'|translate }}</strong> {{ 'AbTesting_TargetTypeEqualsSimpleInfo'|translate }} </li>
+            <li><strong>{{ 'AbTesting_TargetTypeEqualsExactly'|translate }}</strong> {{ 'AbTesting_TargetTypeEqualsExactlyInfo'|translate }} </li>
+            <li><strong>{{ 'AbTesting_TargetTypeRegExp'|translate }}</strong> {{ 'AbTesting_TargetTypeRegExpInfo'|translate }} </li>
+        </ul>
+        <br />
+        {{ 'AbTesting_TargetComparisionsCaseInsensitive'|translate }}<br/>
+    </div>
+
+</div>

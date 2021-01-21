@@ -1,0 +1,36 @@
+<!-- Matomo A/B Test -->
+<script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(['AbTesting::create', {
+        name: '{{ experiment.name }}', // you can also use '{{ experiment.idexperiment }}' (ID of the experiment) to hide the name
+        percentage: {{ experiment.percentage_participants }},
+        includedTargets: {{ experiment.included_targets|json_encode }},
+        excludedTargets: {{ experiment.excluded_targets|json_encode }},
+        {% if experiment.start_date %}startDateTime: '{{ experiment.start_date|replace({'-': '/'}) }} UTC',
+        {% endif %}{% if experiment.end_date %}endDateTime: '{{ experiment.end_date|replace({'-': '/'}) }} UTC',
+        {% endif %}variations: [
+            {
+                name: '{{ originalVariationName }}',
+                activate: function (event) {
+                    {% if experiment.original_redirect_url is defined and experiment.original_redirect_url %}event.redirect('{{ experiment.original_redirect_url|replace({"'": '%27'}) }}');{% else %}// usually nothing needs to be done here{% endif %}
+
+                }
+            },
+{% for variation in experiment.variations %}
+            {
+                name: '{{ variation.name }}', // you can also use '{{ variation.idvariation }}' (ID of the variation) to hide the name
+                {% if variation.percentage or variation.percentage is same as(0) or variation.percentage is same as('0') %}percentage: {{ variation.percentage }},
+                {% endif %}activate: function(event) {
+                    {% if variation.redirect_url is defined and variation.redirect_url %}event.redirect('{{ variation.redirect_url|replace({"'": '%27'}) }}');{% else %}// eg $('#btn').attr('style', 'color: ' + this.name + ';');{% endif %}
+
+                }
+            }{% if not loop.last %},{% endif %}
+            {%  endfor %}
+
+        ],
+        trigger: function () {
+            return true; // here you can further customize which of your visitors will participate in this experiment
+        }
+    }]);
+</script>
+<!-- Matomo A/B Test -->

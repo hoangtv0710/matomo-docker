@@ -1,0 +1,27 @@
+<div class="form-group hsrTargetTest">
+    <label><strong>{{ 'HeatmapSessionRecording_TargetPageTestTitle'|translate }}:</strong> {{ 'HeatmapSessionRecording_TargetPageTestLabel'|translate }}</label>
+
+    <input type="text" ng-model="targetTest.url"
+           id="urltargettest"
+           ng-class="{'invalid': targetTest.url && !targetTest.matches && targetTest.isValid}"
+           ng-change="onUrlChange()" placeholder="http://www.example.com/">
+
+    <div>
+        <span ng-show="targetTest.url && !targetTest.isValid" class="testInfo">
+            {{ 'HeatmapSessionRecording_TargetPageTestErrorInvalidUrl'|translate }}
+        </span>
+        <span ng-show="targetTest.url && targetTest.matches && targetTest.isValid" class="testInfo matches">
+            {{ 'HeatmapSessionRecording_TargetPageTestUrlMatches'|translate }}
+        </span>
+        <span ng-show="targetTest.url && !targetTest.matches && targetTest.isValid" class="testInfo notMatches">
+            {{ 'HeatmapSessionRecording_TargetPageTestUrlNotMatches'|translate }}
+        </span>
+
+        <span class="loadingPiwik loadingMatchingSteps" ng-show="targetTest.isLoadingTestMatchPage">
+            <img src="plugins/Morpheus/images/loading-blue.gif" alt=""/>{{ 'General_LoadingData'|translate }}
+        </span>
+
+    </div>
+
+    <div id="hsrTargetValidationError"></div>
+</div>

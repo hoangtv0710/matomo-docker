@@ -1,0 +1,8 @@
+<div class="manageExperiments">
+    <div ng-show="!manageExperiments.editMode">
+        <div piwik-experiments-list></div>
+    </div>
+    <div ng-show="manageExperiments.editMode">
+        <div piwik-experiment-edit id-experiment="manageExperiments.idExperiment"></div>
+    </div>
+</div>

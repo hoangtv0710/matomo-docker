@@ -1,0 +1,28 @@
+{% extends 'admin.twig' %}
+
+{% block content %}
+    <div piwik-content-block content-title="WooCommerce Integration" class="woocommerceAnalytics">
+
+        <h3>{{ 'Installation_Installation'|translate }}</h3>
+        <ul>
+            <li>{{ 'WooCommerceAnalytics_InstallDownload'|translate }}</li>
+            <li>{{ 'WooCommerceAnalytics_InstallLoginWordPress'|translate }}</li>
+            <li>{{ 'WooCommerceAnalytics_InstallWordPress'|translate }}</li>
+            <li>{{ 'WooCommerceAnalytics_InstallActivatePlugin'|translate }}</li>
+            <li>{{ 'WooCommerceAnalytics_InstallGoSettings'|translate }}</li>
+            <li>{{ 'WooCommerceAnalytics_InstallConfigure'|translate }}</li>
+        </ul>
+        <p><br /><a download class="btn" href="{{ linkTo({'action': 'download', 'module': 'WooCommerceAnalytics'}) }}">{{ 'WooCommerceAnalytics_DownloadPlugin'|translate }}</a></p>
+
+        <h3>{{ 'WooCommerceAnalytics_UpdatingPlugin'|translate }}</h3>
+        <p>{{ 'WooCommerceAnalytics_UpdatingPluginConfigured'|translate }}<br /><br />
+            {{ 'WooCommerceAnalytics_UpdatingPluginPiwikServer'|translate }}
+        </p>
+
+        <h3>{{ 'General_Help'|translate }}</h3>
+        <ul>
+            <li><a target="_blank" rel="noreferrer" href="https://plugins.matomo.org/WooCommerceAnalytics#faq">FAQ</a></li>
+        </ul>
+
+    </div>
+{% endblock %}

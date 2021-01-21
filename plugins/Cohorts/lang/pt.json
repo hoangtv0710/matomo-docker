@@ -1,0 +1,18 @@
+{
+    "Cohorts": {
+        "VisitorFirstVisitTime": "Data da aquisição",
+        "Cohort": "Coorte",
+        "Cohorts": "Coortes",
+        "EvolutionGraph": "Gráficos de coortes",
+        "SelectAMetric": "Selecione a métrica a apresentar",
+        "ReturningVisitorsPercent": "% de visitantes recorrentes",
+        "VisitorRetentionTooltip": "Durante %1$s, dos %2$s visitantes que visitaram o site pela primeira vez %3$s voltaram ao seu site.",
+        "GenericMetricTooltip": "Durante %1$s, estiveram %2$s dos %3$s coortes.",
+        "ColumnDocumentation1": "Esta coluna mostra o valor da métrica selecionada para o período que é %1$s %2$s depois da primeira visita coorte dos visitantes.",
+        "ColumnDocumentation2": "A data especificada irá variar baseado no coorte, que é determinado pela linha.",
+        "ColumnDocumentationCohortPeriod": "Esta coluna mostra o valor da métrica para o período do coorte, por exemplo, o período onde os visitantes coortes apareceram pela primeira vez.",
+        "VisitsByPeriodOfFirstVisit": "Visitas pelo período da primeira visita",
+        "GetCohortsDocumentation": "Mostra o desempenho de diferentes coortes sob um conjunto de períodos imediatamente depois de um coorte aparecer.",
+        "CohortsOverTime": "Coortes ao longo do tempo"
+    }
+}

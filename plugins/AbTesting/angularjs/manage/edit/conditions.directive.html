@@ -1,0 +1,27 @@
+<div>
+
+    <div id="mdeRelativeHelpText" class="inline-help-node">
+        {{ 'AbTesting_FieldMinimumDetectableEffectHelp1'|translate }}
+        <br /><br />
+        {{ 'AbTesting_FieldMinimumDetectableEffectHelp2'|translate }}
+    </div>
+    <div piwik-field uicontrol="select" name="mde_relative"
+         ng-model="editExperiment.experiment.mde_relative"
+         data-title="{{ 'AbTesting_MinimumDetectableEffectMDE'|translate }}"
+         ng-change="editExperiment.setValueHasChanged()"
+         inline-help="#mdeRelativeHelpText"
+         options='editExperiment.mdeRelativeOptions'>
+    </div>
+
+    <div piwik-field uicontrol="select" name="confidence_threshold"
+         ng-model="editExperiment.experiment.confidence_threshold"
+         data-title="{{ 'AbTesting_ConfidenceThreshold'|translate }}"
+         ng-change="editExperiment.setValueHasChanged()"
+         inline-help="{{ 'AbTesting_FieldConfidenceThresholdHelp'|translate }}"
+         options='editExperiment.confidenceThresholdOptions'>
+    </div>
+
+    <div class="alert alert-info">
+        {{ 'AbTesting_FieldSuccessConditionsHelp'|translate }}
+    </div>
+</div>

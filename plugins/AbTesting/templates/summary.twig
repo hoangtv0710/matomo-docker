@@ -1,0 +1,60 @@
+<div piwik-content-intro>
+    <h2>{{ 'AbTesting_MenuTitleExperiment'|translate(experiment.name) }}</h2>
+
+    <p class="experimentSummary">
+        <strong>{{ 'AbTesting_Hypothesis'|translate }}:</strong> {{ experiment.hypothesis }}
+        <br />
+        <strong>{{ 'General_Description'|translate }}:</strong> {{ experiment.description }}
+        <br />
+        <strong>{{ 'AbTesting_ExpectedImprovement'|translate }}:</strong> {{ experiment.mde_relative }}%
+        <br />
+        <strong>{{ 'AbTesting_ConfidenceThreshold'|translate }}:</strong> {{ experiment.confidence_threshold }}%
+        <br />
+        <strong>{{ 'AbTesting_Status'|translate }}:</strong>
+        {% if experiment.status == 'running' %}
+            {{ 'AbTesting_ReportStatusRunning'|translate('<span class="reportDuration">' ~ experiment.duration ~ '</span>', (experiment.start_date_site_timezone|default('')|prettyDate('day')))|raw }}
+            {% if isAdmin %}
+                <a href="javascript:void(0);"
+                   piwik-finish-experiment
+                   idexperiment="{{ experiment.idexperiment }}">{{ 'AbTesting_ActionFinishExperiment'|translate }}</a>
+            {% endif %}
+            <br /><br />
+            {{ 'AbTesting_ReportWhenToDeclareWinner'|translate }}
+        {% endif %}
+        {% if experiment.status == 'finished' %}
+            {{ 'AbTesting_ReportStatusFinished'|translate('<span class="reportDuration">' ~ experiment.duration ~ '</span>', (experiment.start_date_site_timezone|default('')|prettyDate('day')), (experiment.end_date_site_timezone|default('')|prettyDate('day')))|raw }}
+            {% if isAdmin %}
+                <a href="javascript:void(0);"
+                   piwik-archive-experiment
+                   title="{{ 'AbTesting_ArchiveReportInfo'|translate }}"
+                   idexperiment="{{ experiment.idexperiment }}">{{ 'AbTesting_ActionArchiveExperiment'|translate }}</a>
+            {% endif %}
+        {% endif %}
+    </p>
+
+    <div class="ui-confirm" id="confirmArchiveExperiment">
+        <h2>{{ 'AbTesting_ArchiveReportConfirm'|translate }}</h2>
+        <input role="yes" type="button" value="{{ 'General_Yes'|translate }}"/>
+        <input role="no" type="button" value="{{ 'General_No'|translate }}"/>
+    </div>
+
+    <div class="ui-confirm" id="confirmFinishExperiment">
+        <h2>{{ 'AbTesting_ConfirmFinishExperiment'|translate }}</h2>
+        <input role="yes" type="button" value="{{ 'General_Yes'|translate }}"/>
+        <input role="no" type="button" value="{{ 'General_No'|translate }}"/>
+    </div>
+
+    <div id="abtestPeriod" class="piwikTopControl piwikSelector borderedControl periodSelector">
+        <span id="date" class="title" title="{{ 'AbTesting_ReportDateCannotBeChanged'|translate|e('html_attr') }}">
+            <span class="icon icon-calendar"></span>
+            {{ readablePeriod }}
+        </span>
+    </div>
+
+    <script type="text/javascript">
+        $(function() {
+            initAbTest();
+        });
+    </script>
+
+</div>

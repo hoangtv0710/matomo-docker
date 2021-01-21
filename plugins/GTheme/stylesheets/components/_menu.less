@@ -1,0 +1,47 @@
+#secondNavBar {
+     ul {
+          & > li > ul > li.active > .item {
+               background-color: transparent !important;
+          }
+
+          li {
+               &.active > a {
+                    background-color: transparent !important;
+               }
+
+               a {
+                    border-radius: 0;
+                    font-weight: 500;
+                    font-size: 14px;
+                    //letter-spacing: .25px;
+                    color: rgba(0, 0, 0, 0.54);
+                    padding: 9px 21px 10px 19px !important;
+
+                    &:focus {
+                         outline: none !important;
+                    }
+
+                    &:hover {
+                         background-color: #ceccd2 !important;
+                         transition: 0.2s ease all;
+                    }
+               }
+          }
+     }
+}
+
+#root #secondNavBar .navbar > li > ul li .item {
+     padding-left: 65px !important;
+}
+
+#topmenu-corehome,
+nav ul a {
+     background-color: @theme-color-background-base;
+     &:hover,
+     &:active,
+     &:focus {
+          background-color: @theme-color-background-base;
+          outline: none;
+          border-bottom: 1px solid @theme-color-header-text;
+     }
+}

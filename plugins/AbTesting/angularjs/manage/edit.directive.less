@@ -1,0 +1,155 @@
+.uiTest .editExperiment {
+    .currentDate {
+        visibility: hidden;
+    }
+}
+
+.editExperiment {
+    .icon-plus, .icon-minus {
+        cursor: pointer;
+        margin-top: 5px;
+        margin-left: 8px;
+        display: inline-block;
+    }
+
+    .entityList {
+        padding-left: 0;
+
+        ul {
+            li {
+                &.disabled a {
+                    opacity: 0.6;
+                    cursor: default;
+                    text-decoration: none;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+
+                &.active a {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .optionsUnconfirmedEditExperiment {
+        li {
+            margin: 10px;
+        }
+    }
+
+    .btn.update[disabled] {
+        background-color: @theme-color-brand !important;
+    }
+
+    .excludedTargets,
+    .includedTargets {
+        margin-top: 1em;
+
+        hr {
+            margin-bottom: 3em;
+        }
+
+        .form-group {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .input-field {
+            margin-top: 0.2em;
+
+            input, select{
+                width: 100% !important;
+            }
+        }
+    }
+
+    .form-group.scheduleExperiment {
+        margin-top: 40px;
+
+        .col {
+            padding-left: 0;
+            &.input-field {
+                margin-top: 0;
+                input {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .form-group {
+        .redirects,
+        .control_text.percentage {
+            .form-group {
+                margin-top: 0;
+                margin-bottom: 8px;
+            }
+        }
+        .trafficVariation .form-group {
+            margin-top: 8px;
+            margin-bottom: 0px;
+        }
+
+        .variation {
+            margin-top: 16px;
+        }
+
+        .successMetric.successMetric0 {
+            .form-group {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+        .successMetric .form-group {
+            margin-top: 8px;
+            margin-bottom: 8px;
+            .input-field {
+                padding-left: 0;
+            }
+        }
+
+        .multiple {
+            .innerFormField,
+            input, select {
+                width: ~"calc(100% - 60px)";
+            }
+
+            .innerFormField input, select{
+                width: 100%;
+            }
+
+            .icon-plus, .icon-minus {
+                position: relative;
+            }
+
+        }
+    }
+
+    .editExperimentArea {
+        padding-right: 0;
+    }
+
+    .createExperimentArea {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .initalPageUrl {
+        .input-field {
+            margin-top: 0;
+        }
+    }
+
+    .experimentStartTimeInput,
+    .experimentEndDateInput,
+    .experimentEndTimeInput,
+    .experimentStartDateInput {
+        display:inline-block;
+        width: 19%;
+    }
+
+    .btn.create {
+        margin-top: 20px;
+    }
+}

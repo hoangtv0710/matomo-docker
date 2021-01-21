@@ -1,0 +1,7 @@
+{% if experiments|length %}
+  {% for experiment in experiments %}
+   <div piwik-widget-loader="{module: 'AbTesting', action: 'getMetricsOverview', idExperiment: {{ experiment.idexperiment|e('html_attr') }}, showSummary: 1, idSite: {{ idSite|e('html_attr') }}}"></div>
+  {% endfor %}
+{% else %}
+    <p>{{ 'AbTesting_NoActiveExperiment'|translate }}</p>
+{% endif %}

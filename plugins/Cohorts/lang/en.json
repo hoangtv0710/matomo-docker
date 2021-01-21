@@ -1,0 +1,18 @@
+{
+    "Cohorts": {
+        "VisitorFirstVisitTime": "Acquisition Date",
+        "Cohort": "Cohort",
+        "Cohorts": "Cohorts",
+        "EvolutionGraph": "Cohorts Graph",
+        "SelectAMetric": "Select a metric to display",
+        "ReturningVisitorsPercent": "Returning Visitors %",
+        "VisitorRetentionTooltip": "During %1$s, %2$s of the visitors who first visited in %3$s returned to your website.",
+        "GenericMetricTooltip": "During %1$s, there were %2$s from the %3$s cohort.",
+        "ColumnDocumentation1": "This column shows the selected metric value for the period that is %1$s %2$s after the visitors in the cohort first visited.",
+        "ColumnDocumentation2": "The specific date will vary based on the cohort, which is determined by the row.",
+        "ColumnDocumentationCohortPeriod": "This column shows the metric value for the cohort period, ie the period where the cohort visitors first appear.",
+        "VisitsByPeriodOfFirstVisit": "Visits By Period Of First Visit",
+        "GetCohortsDocumentation": "Shows the performance of different cohorts over a set of periods directly after a cohort appears.",
+        "CohortsOverTime": "Cohorts Over Time"
+    }
+}

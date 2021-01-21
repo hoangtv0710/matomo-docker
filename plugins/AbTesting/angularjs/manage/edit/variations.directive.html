@@ -1,0 +1,41 @@
+<div class="form-group row">
+
+    <div class="col s12 m6">
+        <div>
+            <label for="variations">{{ 'AbTesting_Variations'|translate }}</label>
+
+            <div class="variation original">
+                <input type="text"
+                       class="name disabled"
+                       disabled
+                       value="{{ 'AbTesting_NameOriginalVariation'|translate }}">
+            </div>
+
+            <div ng-repeat="(index, exper) in editExperiment.experiment.variations" class="variation {{ index }} multiple">
+                <input type="text"
+                       class="control_text name"
+                       maxlength="50"
+                       title="{{ editExperiment.experiment.variations[index].idvariation ? 'Variation ID ' + editExperiment.experiment.variations[index].idvariation : ''}}"
+                       ng-change="editExperiment.setValueHasChanged()"
+                       ng-model="editExperiment.experiment.variations[index].name">
+
+                <span ng-click="editExperiment.addVariation()"
+                      title="{{ 'General_Add'|translate }}"
+                      class="icon-plus"></span>
+                <span ng-click="editExperiment.removeVariation(index)"
+                      title="{{ 'General_Remove'|translate }}"
+                      ng-show="(editExperiment.experiment.variations|length) > 1"
+                      class="icon-minus"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col s12 m6">
+        <div class="form-help">
+            <span class="inline-help">
+                {{ 'AbTesting_FieldVariationsHelp'|translate }}
+            </span>
+        </div>
+    </div>
+
+</div>

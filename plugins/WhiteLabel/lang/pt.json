@@ -1,0 +1,17 @@
+{
+    "WhiteLabel": {
+        "SettingBrandNameTitle": "Nome personalizado da marca\/produto",
+        "SettingBrandNameDescription": "Se definido, o nome do produto 'Matomo \/ Piwik' no interface de utilizador será substituído na maioria dos locais pelo seu nome da marca. Não será substituído nas páginas de ajuda e, extensões e temas, que são apenas visíveis a super-utilizadores. Também não será substituído na Loja para dar os devidos créditos aos autores das extensões.",
+        "SettingBrandNameMaxLen": "São permitidos um máximo de %s para o nome do produto\/marca.",
+        "SettingBrandNameInvalidChar": "Não é permitida a utilização do carater %s no nome do produto\/marca.",
+        "SettingRemoveLinksToMatomo": "Novo: remover ligações para o matomo.org (experimental)",
+        "SettingRemoveLinksToMatomoDescription": "Se ativo, irá remover as ligações para o matomo.org para todos os utilizadores exceto super-utilizadores. Por favor, note que nem todas as ligações podem ser substituídas nesta fase, dado que algumas ligações geradas pelo navegador podem ainda ser apresentadas.",
+        "SettingHeaderFontColor": "Cor do tipo de letra do cabeçalho",
+        "SettingHeaderBackgroundColor": "Cor de fundo do cabeçalho",
+        "SettingColorHelp": "Por favor, introduza um valor hexadecimal para a cor, por exemplo \"ffffff\".",
+        "SettingWhitelabelTrackingEndpoint": "Ponto de recolha do acompanhamento",
+        "SettingWhitelabelTrackingEndpointDescription": "Se ativo, \"piwik.js\" e \"piwik.php\" serão substituídos por \"js\/tracker.js\" e \"js\/tracker.php\" no gerador de códigos de acompanhamento e também para solicitações do código de acompanhamento via API. Ao ativar esta funcionalidade, é recomendável que teste se o seu servidor permite pedidos para, por exemplo, %s",
+        "SettingMarketplaceOnlySuperUserTitle": "Mostrar a Loja apenas para super-utilizadores",
+        "SettingMarketplaceOnlySuperUserDescription": "Por predefinição, a Loja é visível para quaisquer utilizadores autenticados. Quando ativar esta definição, a página da Loja apenas será visível para utilizadores com acesso de super-utilizador. Isto pode ser útil caso não queira apresentar a Loja aos seus utilizadores mas ainda assim pretende instalar e atualizar facilmente extensões a partir da Loja."
+    }
+}

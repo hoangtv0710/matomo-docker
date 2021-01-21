@@ -1,0 +1,29 @@
+{
+  "name": "MediaAnalytics",
+  "version": "3.4.14",
+  "description": "Grow your business with advanced video & audio analytics. Get powerful insights into how your audience watches your videos and listens to your audio.",
+  "theme": false,
+  "require": {
+    "piwik": ">=3.0.0-rc3,<4.0.0-b1"
+  },
+  "authors": [
+    {
+      "name": "InnoCraft",
+      "email": "contact@innocraft.com",
+      "homepage": "https://www.innocraft.com"
+    }
+  ],
+  "preview": {
+    "video_url": "https://www.youtube-nocookie.com/embed/q7SaiE3iBGA",
+    "demo_url": "https://demo.matomo.org/index.php?module=CoreHome&action=index&idSite=62&period=day&date=yesterday#?idSite=62&period=day&date=yesterday&category=MediaAnalytics_Media&subcategory=General_Overview"
+  },
+  "price": {
+    "base": 150
+  },
+  "archive": {
+    "exclude": ["/tracker.js"]
+  },
+  "homepage": "https://www.media-analytics.net",
+  "license": "InnoCraft EULA",
+  "keywords": ["video", "audio", "media", "youtube", "vimeo", "html5", "analytics", "marketing", "cro", "conversion"]
+}

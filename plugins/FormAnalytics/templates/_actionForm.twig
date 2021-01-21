@@ -1,0 +1,28 @@
+<li class="form-action"
+    title="{{ postEvent('Live.renderActionTooltip', action, visitInfo) }}">
+    <div>
+        {% if action.submitted %}
+            <span class="icon-form action-list-action-icon" title="{{ 'FormAnalytics_ColumnFormSubmissions'|translate }}"></span>
+        {% else %}
+            <span class="icon-form action-list-action-icon" title="{{ 'FormAnalytics_ColumnFormViews'|translate }}"></span>
+        {% endif %}
+        {% set formName %}
+            {% if not isWidgetized and action.formStatus != constant('Piwik\\Plugins\\FormAnalytics\\Model\\FormsModel::STATUS_DELETED') %}
+            <a href="#" onclick="broadcast.propagateNewPage('category=FormAnalytics_Forms&subcategory={{ action.formId }}', true, 'popover=')">
+            {% else %}
+            <strong>
+            {% endif %}
+                {{ action.formName }}
+            {% if not isWidgetized and action.formStatus != constant('Piwik\\Plugins\\FormAnalytics\\Model\\FormsModel::STATUS_DELETED') %}
+            </a>
+            {% else %}
+            </strong>
+            {% endif %}
+        {% endset %}
+        {% if action.submitted > 0 %}
+            {{ 'FormAnalytics_SubmittedFormX'|translate(formName)|raw }}
+        {% else %}
+            {{ 'FormAnalytics_InteractedWithFormX'|translate(formName)|raw }}
+        {% endif %}
+    </div>
+</li>

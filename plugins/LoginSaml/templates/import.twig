@@ -1,0 +1,51 @@
+{% extends 'admin.twig' %}
+
+{% block content %}
+
+<div>
+
+    <div piwik-ajax-form
+     submit-api-method="'LoginSaml.importIdPMetadata'"
+     use-custom-data-binding="true"
+     send-json-payload="true">
+
+        <div piwik-content-block id="ImportMetadataSection"
+             content-title="{{ 'LoginSaml_ImportMetadataTitle'|translate }}">
+
+            <div class="pull-right" style="margin-top:-80px;">
+                <h3><a href="index.php?module=LoginSaml&action=admin"
+       >{{ 'LoginSaml_GOBACKADMINLINK'|translate|e('html_attr') }}</a></h3>
+            </div>
+
+            <p>{{'LoginSaml_ImportMetadataText'|translate|e('html_attr')}}</p>
+
+            <div piwik-field uicontrol="text" name="idp_metadata_url"
+                 title="{{ 'LoginSaml_ImportIdPURL'|translate|e('html_attr') }}"
+                 value=""
+                 ng-model="ajaxForm.data.idp_metadata_url"
+                 inline-help="{{ 'LoginSaml_ImportIdPURLDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-field uicontrol="textarea" name="idp_metadata_xml"
+                 title="{{ 'LoginSaml_ImportIdPXML'|translate|e('html_attr') }}"
+                 value=""
+                 ng-model="ajaxForm.data.idp_metadata_xml"
+                 inline-help="{{ 'LoginSaml_ImportIdPXMLDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <hr>
+
+            <div piwik-field uicontrol="text" name="idp_entityid"
+                 title="{{ 'LoginSaml_ImportIdPEntityId'|translate|e('html_attr') }}"
+                 value=""
+                 ng-model="ajaxForm.data.idp_entityid"
+                 inline-help="{{ 'LoginSaml_ImportIdPEntityIdDescription'|translate|e('html_attr') }}">
+            </div>
+
+            <div piwik-save-button saving="ajaxform.isSubmitting" onconfirm="ajaxForm.submitForm()" value="Import"></div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

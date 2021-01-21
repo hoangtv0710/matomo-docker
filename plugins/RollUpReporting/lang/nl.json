@@ -1,0 +1,22 @@
+{
+    "RollUpReporting": {
+        "RollUpSitePrefixName": "Overzicht",
+        "RollUpMeasurableSettingTitle": "Bron meetwaarden",
+        "RollUpMeasurableSettingHelp": "Definieert de bron meetwaarden die voor deze meetwaarde moeten worden verzameld. Om een ​​meetwaarde (of website) aan dit overzicht toe te voegen, selecteer dan een meetwaarde van de meetwaarde kiezer. Om een ​​meetwaarde te verwijderen, klik op het min-teken naast de sitenaam. Ten minste één meetwaarde moet aan deze site zijn gekoppeld. E-commerce en Site-Search worden automatisch ingeschakeld als voor een van de toegewezen meetwaarden e-commerce of siteverzoek is ingeschakeld. Wanneer op een later moment meetwaarden worden toevoegt of verwijdert, moeten eerder gegenereerde rapporten mogelijk opnieuw worden gegenereerd.",
+        "SystemSettingCreationDateSyncTitle": "Synchroniseer creatie datum",
+        "SystemSettingCreationDateSyncHelp": "Wanneer ingeschakeld, wordt de creatie datum van het Overzichts rapport automatisch gezet op de oudste bron van de meetwaarde. Dit zorgt ervoor dat je rapportages uit het verleden kan bekijken. Wellicht wil je deze optie uitschakelen wanneer je een high traffic omgeving hebt en het archiveren van deze rapportages te lang duurt.",
+        "ErrorNoSiteAssigned": "Er moet ten minste één site worden toegewezen aan de Overzichts-site",
+        "ErrorCannotAssignRollUpToAnotherRollUp": "Het is niet mogelijk om het overzicht met idsite %s toe te voegen aan dit Overzichts rapport omdat het overzicht idsite %sal is toegevoegd aan het overzicht.",
+        "NoMeasurableAssignedYet": "Geen enkele meetwaarde is nog toegewezen, selecteer een meetwaarde van het dropdown menu hierboven.",
+        "GoalCreationNotPossible": "Het is niet mogelijk om een doel aan te maken voor een Overzichts site.",
+        "FindMeasurables": "Vind meetwaarden",
+        "SelectMeasurable": "Selecteer een meetwaarde om toe te voegen aan dit overzicht",
+        "SelectMeasurablesMatchingSearch": "of voeg alle meetwaarden toe die de volgende zoekterm bevatten",
+        "MatchingSearchNotFound": "Er is geen meetwaarde die overeenkomt met de zoekterm %s.",
+        "MatchingSearchConfirmTitle": "Weet je zeker dat je %s passende meetwaarden wilt toevoegen?",
+        "MatchingSearchConfirmTitleAlreadyAdded": "%spassende meetwaarden zijn al toegevoegd",
+        "MatchingSearchMatchedAdd": "Deze %s meetwaarden komen overeen met %s en worden toegevoegd aan dit overzicht",
+        "MatchingSearchMatchedAlreadyAdded": "Deze%s meetwaarden komen overeen met %s maar zijn al toegevoegd aan dit overzicht",
+        "AllMeasurablesAssigned": "Alle meetwaarden zijn toegekend aan dit overzicht. Wanneer nieuwe meetwaarden worden gemaakt, worden deze automatisch toegevoegd aan dit overzicht."
+    }
+}

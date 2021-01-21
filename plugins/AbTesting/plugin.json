@@ -1,0 +1,29 @@
+{
+  "name": "AbTesting",
+  "version": "3.2.18",
+  "description": "Increase revenue and conversions by comparing different versions of your websites or apps & detect the winning variation that will grow your business!",
+  "theme": false,
+  "require": {
+    "piwik": ">=3.0.0-b1,<4.0.0-b1"
+  },
+  "authors": [
+    {
+      "name": "InnoCraft",
+      "email": "contact@innocraft.com",
+      "homepage": "https://www.innocraft.com"
+    }
+  ],
+  "price": {
+    "base": 200
+  },
+  "archive": {
+    "exclude": ["/tracker.js"]
+  },
+   "preview": {
+      "video_url": "https://www.youtube-nocookie.com/embed/jir37QyCctM",
+        "demo_url": "https://demo.matomo.org/index.php?module=CoreHome&action=index&idSite=62&period=day&date=yesterday#?idSite=62&period=day&date=yesterday&category=AbTesting_Experiments&subcategory=General_Overview"
+    },
+  "homepage": "https://www.ab-tests.net",
+  "license": "InnoCraft EULA",
+  "keywords": ["a/b", "tests", "split", "abtests", "test", "experiments", "variation", "variant", "optimze", "improve", "cro", "marketing"]
+}

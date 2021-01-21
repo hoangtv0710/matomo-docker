@@ -1,0 +1,9 @@
+<tr>
+    <th></th>
+
+    {% for index, column in headersToDisplay %}
+        <th colspan="2" title="{{ documentations[index]|default('')|e('html_attr') }}" class="modelHead" style="min-width:175px;">
+            {{ column }}
+        </th>
+    {% endfor %}
+</tr>

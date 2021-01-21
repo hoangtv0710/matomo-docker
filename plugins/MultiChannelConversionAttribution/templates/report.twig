@@ -1,0 +1,74 @@
+{% if not isWidgetized %}<div class="card"><div class="card-content">{% endif %}
+
+<div class="MultiChannelConversionAttributionWidget" piwik-report-multiattribution>
+    <div >
+        {% if not isWidgetized %}<h2 piwik-enriched-headline inline-help="{{ reportHelp|e('html_attr') }}">{{ 'MultiChannelConversionAttribution_MultiChannelConversionAttribution'|translate }}</h2>{% endif %}
+
+        {% if goals|length == 0 %}
+            <div class="alert alert-info">
+                {{ 'MultiChannelConversionAttribution_NoGoalEnabled'|translate }}
+            </div>
+        {% else %}
+        <div class="row goalAndDaysPrior">
+            <div class="col s12 m3">
+                <div piwik-field uicontrol="select" name="idgoal"
+                     title="{{ 'General_Goal'|translate }}"
+                     ng-model="reportMultiAttrCtrl.idGoal"
+                     ng-change="reportMultiAttrCtrl.onReportChange()"
+                     value="{{ firstGoal }}"
+                     full-width="true"
+                     data-disabled="{% if goals|length <= 1 %}1{% else %}0{% endif %}"
+                     options='{{ goals|json_encode }}'>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <div piwik-field uicontrol="select" name="daysPriorToConversion"
+                     full-width="true"
+                     ng-model="reportMultiAttrCtrl.daysPriorToConversion"
+                     ng-change="reportMultiAttrCtrl.onReportChange()"
+                     title="{{ 'MultiChannelConversionAttribution_DaysPriorToConversion'|translate }}"
+                     value="{{ defaultDayPrior }}"
+                     options='{{ daysPriorOptions|json_encode }}'>
+                </div>
+            </div>
+        </div>
+
+        <div class="row modelSelection">
+            <div class="col s12 m3">
+                <div piwik-field uicontrol="select" name="model1"
+                     title="{{ 'MultiChannelConversionAttribution_AttributionModelX'|translate(1) }}"
+                     ng-model="reportMultiAttrCtrl.model1"
+                     ng-change="reportMultiAttrCtrl.onReportChange()"
+                     full-width="true"
+                     value="{{ selectedModels[0] }}"
+                     options='{{ attributionModels|json_encode }}'>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <div piwik-field uicontrol="select" name="model2"
+                     title="{{ 'MultiChannelConversionAttribution_AttributionModelX'|translate(2) }}"
+                     ng-model="reportMultiAttrCtrl.model2"
+                     ng-change="reportMultiAttrCtrl.onReportChange()"
+                     full-width="true"
+                     value="{{ selectedModels[1] }}"
+                     options='{{ attributionModelsCancelable|json_encode }}'>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <div piwik-field uicontrol="select" name="model3"
+                     title="{{ 'MultiChannelConversionAttribution_AttributionModelX'|translate(3) }}"
+                     ng-model="reportMultiAttrCtrl.model3"
+                     ng-change="reportMultiAttrCtrl.onReportChange()"
+                     full-width="true"
+                     value="{{ selectedModels[2] }}"
+                     options='{{ attributionModelsCancelable|json_encode }}'>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="attributionReport">
+        {{ report|raw }}
+    </div>
+    {% endif %}
+</div>
+{% if not isWidgetized %}</div></div>{% endif %}

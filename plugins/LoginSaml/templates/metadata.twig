@@ -1,0 +1,36 @@
+{% extends 'admin.twig' %}
+
+{% block content %}
+
+<div>
+    <div piwik-content-block id="MetadataXMLSection"
+         content-title="{{ 'LoginSaml_SPMetadata'|translate }}">
+
+        <div class="pull-right" style="margin-top:-80px;">
+            <h3><a href="index.php?module=LoginSaml&action=admin"
+   >{{ 'LoginSaml_GOBACKADMINLINK'|translate|e('html_attr') }}</a></h3>
+        </div>
+        <hr>
+
+        {% if metadataError is defined %}
+            {{metadataError}}
+        {% else %}
+            <p><b>Entity ID:</b><br><input type="text" value="{{spEntityid}}" disabled="disabled" style="color:black;"></p>
+            <p><b>Assertion Consumer Service URL endpoint:</b><br><input type="text" value="{{acs}}" disabled="disabled" style="color:black;"></p>
+            {% if sls is defined %}
+            <p><b>Single Logout Service URL endpoint:</b><br><input type="text" value="{{sls}}" disabled="disabled" style="color:black;"></p>
+            {% endif %}
+            {% if x509cert is defined %}
+            <p><b>Public x509 certificate:</b><br><textarea rows="4" cols="40" disabled="disabled" style="height: 18rem;">{{x509cert}}</textarea></p>
+            {% endif %}
+
+            <hr>
+            <h3>XML</h3>
+            <pre>{{metadata}}</pre></p>
+            <span>{{ 'LoginSaml_METADATAURLLINK_Description'|translate }} <a target="blank" href="{{metadataUrl}}">{{metadataUrl}}</a>,<br> {{ 'LoginSaml_METADATAURLLINK_Description2'|translate }}</span>
+
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{
+    "WhiteLabel": {
+        "SettingBrandNameTitle": "Eigene Marke oder Produktnamen",
+        "SettingBrandNameDescription": "Wenn ausgewählt wird der Produktname \"Matomo \/ Piwik\" in der Benutzeroberfläche in den meisten Plätzen mit Ihrem Markennamen ersetzt. Ausgenommen sind die Hilfeseite und die Plugins\/Themes Seite, welche nur für Superuser sichtbar sind. Er wird außerdem nicht im Marketplace ersetzt im Interesse der Autoren der Plugins.",
+        "SettingBrandNameMaxLen": "Maximal %s Zeichen sind für die Marke oder den Produktnamen erlaubt.",
+        "SettingBrandNameInvalidChar": "Das Zeichen %s ist in der Marke oder dem Produktnamen nicht erlaubt.",
+        "SettingRemoveLinksToMatomo": "Neu: Links zu matomo.org entfernen (experimentell)",
+        "SettingRemoveLinksToMatomoDescription": "Wenn aktiviert, werden Links zu matomo.org für alle User außer Superuser entfernt. Beachten Sie, dass noch nicht 100% der Links entfernt werden und einige, die im Browser generiert werden, weiterhin angezeigt werden.",
+        "SettingHeaderFontColor": "Header Schriftfarbe",
+        "SettingHeaderBackgroundColor": "Header Hintergrundfarbe",
+        "SettingColorHelp": "Bitte geben Sie einen hexadezimalen Farbwert ein (zum Beispiel \"ffffff\")",
+        "SettingWhitelabelTrackingEndpoint": "Tracking Endpoint verallgemeinern",
+        "SettingWhitelabelTrackingEndpointDescription": "Wenn aktiviert, werden \"piwik.js\" und \"piwik.php\" durch \"js\/tracker.php\" im Tracking Code Generator und in der API ersetzt. Wenn Sie dies aktivieren, ist es empfohlen zu überprüfen, ob der Server anfragen an %s erlaubt.",
+        "SettingMarketplaceOnlySuperUserTitle": "Marketplace nur Haupt-Administratoren zeigen",
+        "SettingMarketplaceOnlySuperUserDescription": "Standardmäßig ist der Marketplace für jeden angemeldeten Benutzer sichtbar. Wenn Sie diese Einstellung aktivieren, ist die Marketplace-Seite nur für Haupt-Administratoren sichtbar. Dies kann nützlich sein, wenn Sie Ihren Benutzern den Marketplace nicht zeigen wollen, aber dennoch in der Lage sein wollen, Plugins aus dem Marketplace einfach zu installieren und zu aktualisieren."
+    }
+}

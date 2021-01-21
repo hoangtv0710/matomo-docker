@@ -1,0 +1,16 @@
+{
+    "name": "innocraft/experiment-redirect",
+    "description": "Redirect",
+    "keywords": ["a-b", "testing", "split", "tests", "experiments"],
+    "license": "InnoCraft EULA",
+    "authors": [
+        {
+            "name": "InnoCraft Ltd",
+            "email": "contact@innocraft.com"
+        }
+    ],
+    "require": {
+		"php": ">=5.5.9",
+        "innocraft/php-experiments": ">=1.0.0"
+    }
+}

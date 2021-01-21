@@ -1,0 +1,15 @@
+.loginSection #piwik {
+  display:none;
+}
+
+.whiteLabelRemoveLinks a[href*="piwik.org"],
+.whiteLabelRemoveLinks a[href*="matomo.org"] {
+  text-decoration: none;
+  pointer-events: none !important;
+  color: @theme-color-text;
+  :hover {
+    text-decoration: none;
+    pointer-events: none !important;
+    color: @theme-color-text;
+  }
+}

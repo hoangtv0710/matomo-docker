@@ -1,0 +1,35 @@
+<div>
+
+    <div class="form-group row">
+        <div class="col s12 m6" style="padding-left: 0;">
+
+            <div ng-repeat="(index, exper) in editExperiment.experiment.variations"
+                 class="redirectsAllocation {{ index }}">
+
+                <div piwik-field uicontrol="text" name="redirects"
+                     class="redirects"
+                     maxlength="1000"
+                     data-title="{{ 'AbTesting_Variation'|translate }} &quot;{{ editExperiment.experiment.variations[index].name }}&quot;"
+                     placeholder="eg http://www.example.com"
+                     ng-change="editExperiment.setValueHasChanged()"
+                     ng-model="editExperiment.experiment.variations[index].redirect_url"
+                     full-width="true">
+                </div>
+            </div>
+
+        </div>
+        <div class="col s12 m6">
+            <div class="form-help">
+            <span class="inline-help">
+                {{ 'AbTesting_FieldRedirectHelp1'|translate }}
+                <br />
+                <br />
+                {{ 'AbTesting_FieldRedirectHelp2'|translate }}
+                <br /><br />
+                <span ng-bind-html="'AbTesting_FieldRedirectHelp3'|translate:'&lt;a target=\'blank\' rel=\'noreferrer\' href=\'https://github.com/innocraft/php-experiments\'>':'&lt;/a>'"></span>
+            </span>
+            </div>
+        </div>
+    </div>
+
+</div>

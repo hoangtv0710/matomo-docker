@@ -1,0 +1,22 @@
+{
+    "RollUpReporting": {
+        "RollUpSitePrefixName": "Roll-Up",
+        "RollUpMeasurableSettingTitle": "Fonte misurabili",
+        "RollUpMeasurableSettingHelp": "Definisce le fonti misurabili che devono essere aggregate per questo misurabile. Per aggiungere un misurabile (o un sito Web) a questo roll-up, seleziona un misurabile nell'apposito selettore. Per rimuovere un misurabile clicca sull'icona - accanto al nome del sito. Almeno un misurabile deve essere collegato a questo sito. E-commerce e Site-Search verranno abilitati automaticamente se uno dei misurabili assegnati ha attivato l'e-commerce o la ricerca sul sito. Quando aggiungi o rimuovi i misurabili in un secondo momento, potrebbe essere necessario rigenerare i report in precedenza generati.",
+        "SystemSettingCreationDateSyncTitle": "Sincronizza data di creazione",
+        "SystemSettingCreationDateSyncHelp": "Se abilitata, la data di creazione di un Roll-Up verrà automaticamente impostata sulla data di creazione della più vecchia sorgente misurabile. Ciò consente di visualizzare i report del passato per un roll-up dopo averlo creato. È possibile disabilitare questa impostazione se si dispone di un traffico elevato e l'archiviazione di questi report richiederebbe troppo tempo.",
+        "ErrorNoSiteAssigned": "Almeno un sito child deve essere assegnato al sito Roll-Up",
+        "ErrorCannotAssignRollUpToAnotherRollUp": "Non è possibile assegnare l'id sito Roll-Up %s a questo Roll-up perché l'id sito roll-up %s include già il sito che si sta aggiornando.",
+        "NoMeasurableAssignedYet": "Non è ancora stato assegnato alcun misurabile, si prega di selezionare un misurabile dal selettore qui sopra.",
+        "GoalCreationNotPossible": "Non è possibile creare un obiettivo per un sito Roll-Up",
+        "FindMeasurables": "Trova misurabili",
+        "SelectMeasurable": "Seleziona un misurabile da aggiungere a questo Roll-Up",
+        "SelectMeasurablesMatchingSearch": "o aggiungi tutti i misurabili che contengono il seguente termine di ricerca",
+        "MatchingSearchNotFound": "Non ci sono misurabili che corrispondono al termine di ricerca %s.",
+        "MatchingSearchConfirmTitle": "Sei sicuro di voler aggiungere %s misurabili corrispondenti?",
+        "MatchingSearchConfirmTitleAlreadyAdded": "%s misurabili corrispondenti sono già stati aggiunti",
+        "MatchingSearchMatchedAdd": "Questi %s misurabili corrispondono a %se saranno aggiunti a questo Roll-Up",
+        "MatchingSearchMatchedAlreadyAdded": "Questi %s misurabili corrispondono a %s ma sono già stati aggiunti a questo Roll-Up",
+        "AllMeasurablesAssigned": "Tutti i misurabili sono stati assegnati a questo Roll-Up. Quando crei nuovi misurabili, saranno automaticamente inclusi in questo Roll-Up."
+    }
+}

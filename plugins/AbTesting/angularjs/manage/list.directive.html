@@ -1,0 +1,106 @@
+<div>
+    <div piwik-content-block content-title="{{ 'AbTesting_ManageExperiments'|translate }}"
+         feature="{{ 'AbTesting_ManageExperiments'|translate }}"
+    >
+
+    <p>
+        {{ 'AbTesting_ManageExperimentsIntroduction'|translate }}
+    </p>
+
+    <div>
+        <div piwik-field uicontrol="select" name="filterStatus"
+             id="filterStatus"
+             class="experimentStatusFilter"
+             full-width="true"
+             data-title="{{'AbTesting_Filter'|translate }}"
+             ng-change="experimentsList.onFilterStatusChange()"
+             ng-model="experimentsList.model.filterStatus"
+             options='experimentsList.statusOptions'>
+        </div>
+
+        <div piwik-field uicontrol="text" name="experimentSearch" ng-model="experimentsList.searchFilter"
+             class="experimentSearchFilter"
+             full-width="true"
+             ng-show="(experimentsList.model.experiments|length) > 0"
+             data-title="{{ 'General_Search'|translate }}">
+        </div>
+    </div>
+
+    <table piwik-content-table>
+        <thead>
+        <tr>
+            <th class="index">{{ 'General_Id'|translate }}</th>
+            <th class="name">{{ 'General_Name'|translate }}</th>
+            <th class="description">{{ 'General_Description'|translate }}</th>
+            <th class="status">{{ 'AbTesting_Status'|translate }}</th>
+            <th class="startDate">{{ 'AbTesting_StartDate'|translate }} (UTC)</th>
+            <th class="endDate">{{ 'AbTesting_FinishDate'|translate }} (UTC)</th>
+            <th class="action">{{ 'General_Actions'|translate }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-show="experimentsList.model.isLoading || experimentsList.model.isUpdating">
+            <td colspan="7">
+                <span class="loadingPiwik"><img src="plugins/Morpheus/images/loading-blue.gif"/> {{ 'General_LoadingData'|translate }}</span>
+            </td>
+        </tr>
+        <tr ng-show="!experimentsList.model.isLoading && (experimentsList.model.experiments|length) == 0">
+            <td colspan="7">
+                <span ng-show="experimentsList.model.filterStatus">
+                    {{ 'AbTesting_NoExperimentsFound'|translate }}
+                </span>
+                <span ng-show="!experimentsList.model.filterStatus">
+                    {{ 'AbTesting_NoActiveExperimentConfigured'|translate }}
+                    <a ng-click="experimentsList.createExperiment()"
+                    >{{ 'AbTesting_CreateNewExperimentNow'|translate }}</a>
+                </span>
+            </td>
+        </tr>
+        <tr ng-repeat="experiment in experimentsList.model.experiments|filter:experimentsList.searchFilter|orderBy:'idexperiment'"
+            id="experiment{{ experiment.idexperiment }}"
+            class="experiments">
+            <td class="index">{{ experiment.idexperiment }}</td>
+            <td class="name">{{ experiment.name }}</td>
+            <td class="description">{{ experiment.description|trim|truncateString:60 }}</td>
+            <td class="status">{{ experiment.status|readableExperimentStatus:experimentsList.statusOptions }}</td>
+            <td class="startDate" title="{{ (experiment.start_date|toLocalTime:1) ? ('AbTesting_EqualsDateInYourTimezone'|translate) + (experiment.start_date|toLocalTime:1) : '' }}">{{ experiment.start_date|removeZeroTime }}</td>
+            <td class="endDate" title="{{ (experiment.end_date|toLocalTime:1) ? ('AbTesting_EqualsDateInYourTimezone'|translate) + (experiment.end_date|toLocalTime:1) : '' }}">{{ experiment.end_date|removeZeroTime }}</td>
+            <td class="action">
+                <a ng-click="experimentsList.editExperiment(experiment.idexperiment)"
+                   class="table-action icon-edit" title="{{ 'AbTesting_EditThisExperiment'|translate }}"></a>
+                <a ng-show="experiment.status == 'created'"
+                   ng-click="experimentsList.deleteExperiment(experiment)" class="table-action icon-delete"
+                   title="{{ 'AbTesting_DeleteExperimentInfo'|translate }}"
+                   ></a>
+                <a ng-href="?module=CoreHome&action=index&idSite={{experiment.idsite}}&period=range&date={{experiment.date_range_string}}#?category=AbTesting_Experiments&idSite={{experiment.idsite}}&period=range&date={{experiment.dateRangeString}}&subcategory={{experiment.idexperiment}}"
+                   target="_blank"
+                   ng-show="(experiment.status == 'running' || experiment.status == 'finished') && experiment.date_range_string"
+                   title="{{ 'AbTesting_ViewReportInfo'|translate }}"
+                   class="table-action icon-show"></a>
+                <a ng-click="experimentsList.archiveExperiment(experiment)"
+                   ng-show="experiment.status == 'finished'"
+                   title="{{ 'AbTesting_ArchiveReportInfo'|translate }}"
+                   class="table-action abtestingicon-box-add"></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="tableActionBar">
+        <a class="createNewExperiment" ng-click="experimentsList.createExperiment()"
+        ><span class="icon-add"></span> {{ 'AbTesting_CreateNewExperiment'|translate }}</a>
+    </div>
+    </div>
+
+    <div class="ui-confirm" id="confirmArchiveExperiment">
+        <h2>{{ 'AbTesting_ArchiveReportConfirm'|translate }}</h2>
+        <input role="yes" type="button" value="{{ 'General_Yes'|translate }}"/>
+        <input role="no" type="button" value="{{ 'General_No'|translate }}"/>
+    </div>
+
+    <div class="ui-confirm" id="confirmDeleteExperiment">
+        <h2>{{ 'AbTesting_DeleteExperimentConfirm'|translate }} </h2>
+        <input role="yes" type="button" value="{{ 'General_Yes'|translate }}"/>
+        <input role="no" type="button" value="{{ 'General_No'|translate }}"/>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-server-80
+    working_dir: /application
+    volumes:
+      - .:/application
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    ports:
+      - "8082:3306"
+
+  website:
+    container_name: php72
+    build: .
+    links:
+      - mysql
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - 8090:80
+    depends_on:
+      - mysql

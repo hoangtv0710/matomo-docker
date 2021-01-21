@@ -1,0 +1,7 @@
+<span title="{% if experiments|length == 1 %}{{ 'AbTesting_VisitorEnteredOneExperiment'|translate }}{% else %}{{ 'AbTesting_VisitorEnteredNExperiments'|translate(experiments|length) }}{% endif %}:
+{% for experiment in experiments %}
+    - {{ experiment.name }}{% if experiment.variation.name is defined %} - {{ experiment.variation.name }}{% endif %}
+{% endfor %}" class="log-experiments visitorLogTooltip">
+    <span class="abtestingicon-lab"></span>
+    {{ experiments|length }}
+</span>

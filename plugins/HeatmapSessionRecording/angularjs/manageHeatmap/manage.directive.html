@@ -1,0 +1,11 @@
+<div class="manageHsr">
+    <div ng-show="!manageHeatmap.editMode">
+        <div piwik-heatmap-list></div>
+    </div>
+    <div ng-show="manageHeatmap.editMode">
+        <div piwik-heatmap-edit
+             breakpoint-mobile="manageHeatmap.breakpointMobile"
+             breakpoint-tablet="manageHeatmap.breakpointTablet"
+             id-site-hsr="manageHeatmap.idSiteHsr"></div>
+    </div>
+</div>

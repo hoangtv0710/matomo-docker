@@ -1,0 +1,18 @@
+{
+    "Cohorts": {
+        "VisitorFirstVisitTime": "Derlenme Tarihi",
+        "Cohort": "Topluluk",
+        "Cohorts": "Topluluklar",
+        "EvolutionGraph": "Topluluklar Çizelgesi",
+        "SelectAMetric": "Görüntülenecek bir ölçüm seçin",
+        "ReturningVisitorsPercent": "Geri Gelen Ziyaretçiler %",
+        "VisitorRetentionTooltip": "%1$s süresince, ilk kez %3$s içinde ziyaret eden ziyaretçilerin %2$s kadarı web sitenize geri dönmüş.",
+        "GenericMetricTooltip": "%1$s süresince, %3$s topluluktan %2$s var.",
+        "ColumnDocumentation1": "Bu sütunda topluluktaki ziyaretçilerin ilk ziyaretinden sonra %1$s %2$s aralığındaki seçilmiş ölçüm değeri görüntülenir.",
+        "ColumnDocumentation2": "Belirli tarih, satır tarafından belirlenen topluluğa göre değişir.",
+        "ColumnDocumentationCohortPeriod": "Bu sütunda topluluk aralığı için ölçüm değeri görüntülenir. Örneğin topluluk ziyaretçilerinin ilk kez görüldüğü aralık gibi.",
+        "VisitsByPeriodOfFirstVisit": "İlk Ziyaret Aralığına Göre Ziyaretler",
+        "GetCohortsDocumentation": "Bir topluluk belirdikten sonra farklı toplulukların belirli dönemlere göre başarımını görüntüler.",
+        "CohortsOverTime": "Zamana Göre Topluluklar"
+    }
+}

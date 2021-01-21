@@ -1,0 +1,85 @@
+<div>
+    <div class="form-group">
+
+        <div piwik-field uicontrol="text" name="name"
+             ng-model="editExperiment.experiment.name"
+             maxlength="50"
+             placeholder="eg 'BuyNowButtonColor'"
+             ng-change="editExperiment.setValueHasChanged()"
+             data-title="{{ 'General_Name'|translate }}"
+             inline-help="{{ 'AbTesting_FieldExperimentNameHelp'|translate:50 }}">
+        </div>
+
+    </div>
+
+    <div class="form-group">
+
+        <div id="hypothesis_inline_help" class="inline-help-node">
+            <span ng-bind-html="'AbTesting_FieldHypothesisHelp'|translate:'<strong>':'</strong>':'<strong>':'</strong>':'<strong>':'</strong>'"></span>
+        </div>
+
+        <div piwik-field uicontrol="textarea" name="hypothesis"
+             ng-model="editExperiment.experiment.hypothesis"
+             maxlength="1000"
+             rows="3"
+             placeholder="{{ 'AbTesting_FieldHypothesisPlaceholder'|translate }}"
+             ng-change="editExperiment.setValueHasChanged()"
+             data-title="{{ 'AbTesting_Hypothesis'|translate }}"
+             inline-help="#hypothesis_inline_help">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div piwik-field uicontrol="textarea" name="description"
+             ng-model="editExperiment.experiment.description"
+             maxlength="1000"
+             rows="3"
+             placeholder="{{ 'AbTesting_FieldDescriptionPlaceholder'|translate }}"
+             ng-change="editExperiment.setValueHasChanged()"
+             data-title="{{ 'General_Description'|translate }}"
+             inline-help="{{ 'AbTesting_FieldDescriptionHelp'|translate }}">
+        </div>
+    </div>
+
+    <div piwik-experiment-edit-variations></div>
+
+    <div class="form-group row initalPageUrl" ng-show="editExperiment.create">
+        <div class="col s12 m6" style="padding-left: 0;">
+            <div piwik-field uicontrol="select" name="newTargetType"
+                 data-title="{{ 'AbTesting_TargetPages'|translate }}"
+                 full-width="true"
+                 ng-model="editExperiment.experiment.included_targets[0].type"
+                 options="editExperiment.createExperimentTargetTypes">
+            </div>
+
+            <div piwik-field uicontrol="text" name="experimentUrl"
+                 ng-model="editExperiment.experiment.included_targets[0].value"
+                 full-width="true"
+                 placeholder="eg 'http://www.example.com/{{ 'AbTesting_FilesystemDirectory'|translate }}'"
+                 maxlength="1000"
+                 ng-show="editExperiment.experiment.included_targets[0].type == 'equals_simple'">
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <div class="form-help">
+                <span class="inline-help">
+                    {{ 'AbTesting_NewExperimentTargetPageHelp'|translate }}
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+    <div piwik-save-button
+         class="createButton"
+         onconfirm="editExperiment.confirmedEdit ? editExperiment.updateExperiment() : editExperiment.createExperiment()"
+         ng-show="editExperiment.create"
+         data-disabled="editExperiment.model.isUpdating"
+         value="{{ 'AbTesting_CreateNewExperiment'|translate }}"
+         saving="editExperiment.model.isUpdating">
+    </div>
+
+    <div class='entityCancel' ng-show="editExperiment.create">
+        <span piwikab-bind-html-compile="'General_OrCancel'|translate:'<a ng-click=\'editExperiment.cancel()\'>':'</a>'"></span>
+    </div>
+</div>

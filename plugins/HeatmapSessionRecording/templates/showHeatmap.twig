@@ -1,0 +1,32 @@
+<h2 piwik-enriched-headline
+    edit-url="{{ editUrl }}"
+    inline-help="{{ reportDocumentation }}"
+    >{{ 'HeatmapSessionRecording_HeatmapX'|translate('"' ~ heatmap.name ~ '"') }}</h2>
+
+{% if heatmap.page_treemirror is not empty %}
+
+    {% if heatmapMetadata.nb_samples_device_all is defined and heatmapMetadata.nb_samples_device_all is not empty %}
+    <p>{{ 'HeatmapSessionRecording_HeatmapXRecordedSamplesSince'|translate('<span class="deviceAllCountSamples">' ~ heatmapMetadata.nb_samples_device_all ~ '</span>',(heatmap.created_date|prettyDate('day')))|raw }}</p>
+    {% endif %}
+
+    <div piwik-heatmap-vis id-site-hsr="{{ idSiteHsr }}"
+         heatmap-types="{{ heatmapTypes|json_encode }}"
+         breakpoint-mobile="{{ heatmap.breakpoint_mobile|json_encode }}"
+         breakpoint-tablet="{{ heatmap.breakpoint_tablet|json_encode }}"
+         offset-accuracy="{{ offsetAccuracy }}"
+         excluded-elements="{{ heatmap.excluded_elements|json_encode }}"
+         url="{{ heatmap.screenshot_url|json_encode }}"
+         num-samples="{{ heatmapMetadata|json_encode }}"
+         is-active="{{ isActive|e('html_attr') }}"
+         heatmap-period="{{ heatmapPeriod|json_encode }}"
+         heatmap-date="{{ heatmapDate|json_encode }}"
+         device-types="{{ deviceTypes|json_encode }}">
+
+    </div>
+
+{% elseif heatmapMetadata.nb_samples_device_all is not defined or heatmapMetadata.nb_samples_device_all is empty or heatmapMetadata.nb_samples_device_all == 0 %}
+    <div piwik-content-block><div class="alert alert-info">{{ 'HeatmapSessionRecording_NoHeatmapSamplesRecordedYet'|translate }}</div></div>
+{% else %}
+    <div piwik-content-block><div class="alert alert-info"
+        >{{ 'HeatmapSessionRecording_NoHeatmapScreenshotRecordedYet'|translate(heatmapMetadata.nb_samples_device_all, ('HeatmapSessionRecording_ScreenshotUrl'|translate)) }}</div></div>
+{% endif %}

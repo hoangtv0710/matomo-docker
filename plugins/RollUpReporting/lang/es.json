@@ -1,0 +1,22 @@
+{
+    "RollUpReporting": {
+        "RollUpSitePrefixName": "Lista integrada",
+        "RollUpMeasurableSettingTitle": "Fuente de los mensurables",
+        "RollUpMeasurableSettingHelp": "Define las fuentes medibles que deben agregarse para esta medida. Para agregar un medible (o sitio web) a esta lista integrada, seleccione un medible del selector medible. Para eliminar un medible clic en el icono menos junto al nombre del sitio. Al menos uno medible debe estar vinculado a este sitio. Comercio electrónico y búsqueda en el sitio se habilitarán automáticamente si uno de los medibles asignados tiene habilitado el comercio electrónico o la búsqueda en el sitio. Cuando agregue o elimine medibles en un tiempo posterior, es posible que los informes generados previamente deban volver a generarse.",
+        "SystemSettingCreationDateSyncTitle": "Sincronizar fecha de creación",
+        "SystemSettingCreationDateSyncHelp": "Cuando es habilitado, la fecha de creación de una lista será establecida automáticamente con la fecha de creación de la fuente medible más antigua. Esto le permite ver informes del pasado para un listado después de haberlo creado. Es posible que desee desactivar esta configuración si tiene mucho tráfico y archivar estos informes llevaría demasiado tiempo.",
+        "ErrorNoSiteAssigned": "Al menos se necesita que un sitio menor sea asignado a una lista",
+        "ErrorCannotAssignRollUpToAnotherRollUp": "No es posible asignar una lista idsite %s a esta lista integrada debido a que éste %s ya incluye el sitio que está actualmente actualizando.",
+        "NoMeasurableAssignedYet": "Aún no se ha asignado ningún valor medible, seleccione un medible desde el selector de arriba.",
+        "GoalCreationNotPossible": "No es posible crear una meta para un sitio Roll-Up",
+        "FindMeasurables": "Buscar medibles",
+        "SelectMeasurable": "Seleccione un medible para agregar a esta lista.",
+        "SelectMeasurablesMatchingSearch": "o agregue todos los medibles que contengan el siguiente término de búsqueda",
+        "MatchingSearchNotFound": "No hay medibles que coincidan con el término de búsqueda %s.",
+        "MatchingSearchConfirmTitle": "Está seguro que desea agregar %s medibles coincidentes?",
+        "MatchingSearchConfirmTitleAlreadyAdded": "%s medibles coincidentes ya están agregados",
+        "MatchingSearchMatchedAdd": "Estos %s medibles coinciden %s y serán agregados a esta lista.",
+        "MatchingSearchMatchedAlreadyAdded": "Estos %s medibles coinciden %s pero ya están agregados a esta lista.",
+        "AllMeasurablesAssigned": "Todos los medibles han sido asignados a esta lista integrada. Cuando cree nuevos medibles, estos se incluirán automáticamente en esta lista integrada."
+    }
+}

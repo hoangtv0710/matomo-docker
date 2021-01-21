@@ -1,0 +1,118 @@
+<div class="editHsr"
+     piwik-content-block
+     content-title="{{ editHsr.editTitle|translate:(editHsr.siteHsr.name ? ('&quot;' + editHsr.siteHsr.name + '&quot;') : '') }}">
+
+    <p ng-show="editHsr.model.isLoading">
+        <span class="loadingPiwik"><img src="plugins/Morpheus/images/loading-blue.gif"/> {{ 'General_LoadingData'|translate }}</span>
+    </p>
+
+    <p ng-show="editHsr.model.isUpdating">
+        <span class="loadingPiwik"><img src="plugins/Morpheus/images/loading-blue.gif"/> {{ 'HeatmapSessionRecording_UpdatingData'|translate }}</span>
+    </p>
+
+    <form ng-submit="editHsr.edit ? editHsr.updateHsr() : editHsr.createHsr()">
+        <div>
+            <div piwik-field uicontrol="text" name="name"
+                 ng-model="editHsr.siteHsr.name"
+                 maxlength="50"
+                 placeholder="{{ 'HeatmapSessionRecording_FieldNamePlaceholder'|translate }}"
+                 ng-change="editHsr.setValueHasChanged()"
+                 data-title="{{ 'General_Name'|translate }}"
+                 inline-help="{{ 'HeatmapSessionRecording_SessionNameHelp'|translate }}">
+            </div>
+
+            <div piwik-field uicontrol="select" name="sampleLimit"
+                 ng-model="editHsr.siteHsr.sample_limit"
+                 ng-change="editHsr.setValueHasChanged()"
+                 data-title="{{ 'HeatmapSessionRecording_SessionSampleLimit'|translate }}"
+                 options="editHsr.sampleLimits"
+                 inline-help="{{ 'HeatmapSessionRecording_SessionSampleLimitHelp'|translate }}">
+            </div>
+
+            <div class="form-group row">
+
+                <div class="col s12">
+                    <h3>{{ 'HeatmapSessionRecording_TargetPages'|translate }}:</h3>
+                </div>
+
+                <div class="col s12 m6" style="padding-left: 0;">
+                    <div ng-repeat="(index, url) in editHsr.siteHsr.match_page_rules" class="matchPageRules {{ index }} multiple">
+
+                        <div piwik-hsr-url-target
+                             url-target="editHsr.siteHsr.match_page_rules[index]"
+                             on-add-url="editHsr.addMatchPageRule()"
+                             on-remove-url="editHsr.removeMatchPageRule(index)"
+                             on-any-change="editHsr.setValueHasChanged()"
+                             allow-any="1"
+                             disable-if-no-value="index > 0"
+                             can-be-removed="index > 0"
+                        ></div>
+                        <hr />
+
+                    </div>
+                </div>
+
+                <div class="col s12 m6">
+                    <div class="form-help">
+                        <span class="inline-help">
+                            {{ 'HeatmapSessionRecording_FieldIncludedTargetsHelpSessions'|translate }}
+                            <div piwik-hsr-target-test
+                                 included-targets="editHsr.siteHsr.match_page_rules"></div>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div piwik-field uicontrol="select" name="sampleRate"
+                 ng-model="editHsr.siteHsr.sample_rate"
+                 ng-change="editHsr.setValueHasChanged()"
+                 options="editHsr.sampleRates"
+                 introduction="{{ 'HeatmapSessionRecording_AdvancedOptions'|translate }}"
+                 data-title="{{ 'HeatmapSessionRecording_SampleRate'|translate }}"
+                 inline-help="{{ 'HeatmapSessionRecording_SessionSampleRateHelp'|translate }}">
+            </div>
+
+            <div piwik-field uicontrol="select" name="minSessionTime"
+                 ng-model="editHsr.siteHsr.min_session_time"
+                 ng-change="editHsr.setValueHasChanged()"
+                 options="editHsr.minSessionTimes"
+                 data-title="{{ 'HeatmapSessionRecording_MinSessionTime'|translate }}"
+                 inline-help="{{ 'HeatmapSessionRecording_MinSessionTimeHelp'|translate }}">
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="requiresActivity"
+                 ng-model="editHsr.siteHsr.requires_activity"
+                 ng-change="editHsr.setValueHasChanged()"
+                 data-title="{{ 'HeatmapSessionRecording_RequiresActivity'|translate }}"
+                 inline-help="{{ 'HeatmapSessionRecording_RequiresActivityHelp'|translate }}">
+            </div>
+
+
+            <div id="captureKeystrokesHelpText" class="inline-help-node">
+                <span ng-bind-html="'HeatmapSessionRecording_CaptureKeystrokesHelp'|translate:'<a href=\'https://developer.matomo.org/guides/heatmap-session-recording/setup#masking-keystrokes-in-form-fields\' target=\'_blank\' rel=\'noreferrer\'>':'</a>'"></span>
+            </div>
+
+            <div piwik-field uicontrol="checkbox" name="captureKeystrokes"
+                 ng-model="editHsr.siteHsr.capture_keystrokes"
+                 ng-change="editHsr.setValueHasChanged()"
+                 data-title="{{ 'HeatmapSessionRecording_CaptureKeystrokes'|translate }}"
+                 inline-help="#captureKeystrokesHelpText">
+            </div>
+
+            <p ng-bind-html="'HeatmapSessionRecording_PersonalInformationNote'|translate:('HeatmapSessionRecording_SessionRecording'|translate):'<code>':'</code>':'<a href=\'https://developer.matomo.org/guides/heatmap-session-recording/setup#masking-content-on-your-website\' target=\'_blank\' rel=\'noreferrer noopener\'>':'</a>'"></p>
+
+            <div piwik-save-button
+                 class="createButton"
+                 onconfirm="editHsr.edit ? editHsr.updateHsr() : editHsr.createHsr()"
+                 data-disabled="editHsr.model.isUpdating || !editHsr.isDirty"
+                 value="{{ editHsr.edit ? ('CoreUpdater_UpdateTitle'|translate) : ('HeatmapSessionRecording_CreateNewSessionRecording'|translate) }}"
+                 saving="editHsr.model.isUpdating">
+            </div>
+
+            <div class='entityCancel'>
+                <a ng-click="editHsr.cancel()">{{ 'General_Cancel'|translate }}</a>
+            </div>
+        </div>
+    </form>
+</div>

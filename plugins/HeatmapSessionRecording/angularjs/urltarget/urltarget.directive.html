@@ -1,0 +1,49 @@
+<div class="form-group hsrUrltarget valign-wrapper" ng-class="{'disabled': (disableIfNoValue && !urlTarget.value)}">
+
+    <div style="width:100%">
+        <div piwik-field uicontrol="select" name="targetAttribute"
+             data-title="{{ 'HeatmapSessionRecording_Rule'|translate }}"
+             ng-change="urlTargetCtrl.onAttributeChange();onAnyChange();"
+             ng-model="urlTarget.attribute"
+             options="urlTargetCtrl.targetAttributes"
+             full-width="true">
+        </div>
+
+        <div piwik-field uicontrol="select" name="targetType"
+             ng-change="urlTargetCtrl.onTypeChange();onAnyChange();"
+             ng-model="urlTargetCtrl.pattern_type"
+             options="urlTargetCtrl.targetOptions[urlTarget.attribute]"
+             full-width="true">
+        </div>
+
+        <div piwik-field uicontrol="text" name="targetValue"
+             ng-show="urlTargetCtrl.pattern_type != 'any'"
+             ng-change="urlTarget.value=urlTargetCtrl.trim(urlTarget.value);onAnyChange();"
+             ng-trim="true"
+             ng-model="urlTarget.value"
+             maxlength="500"
+             placeholder="eg. {{ urlTargetCtrl.targetExamples[urlTarget.attribute] }}"
+             full-width="true">
+        </div>
+
+        <div piwik-field uicontrol="text" name="targetValue2"
+             ng-show="urlTarget.attribute == 'urlparam' && urlTargetCtrl.pattern_type && urlTargetCtrl.pattern_type != 'exists' && urlTargetCtrl.pattern_type != 'not_exists'"
+             ng-change="urlTarget.value2=urlTargetCtrl.trim(urlTarget.value2);onAnyChange();"
+             ng-trim="true"
+             maxlength="500"
+             ng-model="urlTarget.value2"
+             placeholder="{{ 'HeatmapSessionRecording_UrlParameterValueToMatchPlaceholder'|translate }}"
+             full-width="true">
+        </div>
+    </div>
+
+    <span ng-click="onAddUrl()"
+          title="{{ 'General_Add'|translate }}"
+          ng-show="onAddUrl"
+          class="icon-plus valign"></span>
+
+    <span ng-click="onRemoveUrl()"
+          title="{{ 'General_Remove'|translate }}"
+          ng-show="canBeRemoved && onRemoveUrl"
+          class="icon-minus valign"></span>
+</div>

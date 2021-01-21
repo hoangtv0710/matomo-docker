@@ -1,0 +1,15 @@
+{
+  "WooCommerceAnalytics": {
+    "InstallDownload": "Download the \"Matomo WooCommerce Analytics\" plugin below.",
+    "InstallLoginWordPress": "Log in to your WordPress / WooCommerce.",
+    "InstallWordPress": "Install the downloaded plugin by going to \"Plugins => Add New => Upload Plugin\".",
+    "InstallActivatePlugin": "Activate the plugin directly after installation or under \"Plugins\".",
+    "InstallGoSettings": "Go to \"WooCommerce => Settings => Matomo\".",
+    "InstallConfigure": "Configure your Matomo instance and activate tracking.",
+    "WoocommercePluginDescription": "Tracks WooCommerce orders and cart updates into your Matomo.",
+    "DownloadPlugin": "Download WooCommerce plugin",
+    "UpdatingPlugin": "Updating the plugin in WooCommerce",
+    "UpdatingPluginConfigured": "As soon as you have configured the \"Matomo URL\" under \"WooCommerce => Settings => Matomo\", the WooCommerce plugin will automatically check for updates and you will be able to update this plugin with just one click directly in WordPress.",
+    "UpdatingPluginPiwikServer": "In order for the updates to work, this Matomo plugin needs to be installed on the configured Matomo instance. It is also recommended updating this Matomo plugin, whenever an update is available."
+  }
+}

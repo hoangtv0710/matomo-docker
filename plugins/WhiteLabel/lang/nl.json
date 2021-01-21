@@ -1,0 +1,17 @@
+{
+    "WhiteLabel": {
+        "SettingBrandNameTitle": "Merknaam \/ product naam",
+        "SettingBrandNameDescription": "Indien gedefinieerd, zal de product naam 'Matomo \/ Piwik ' in de UI gewijzigd worden in jouw merk \/ product naam. Deze zal niet gewijzigd worden in de help pagina's, plugins en thema pagina's, welke alleen zichtbaar zijn voor Super Users. Het zal ook niet gewijzigd worden in de Marketplace aangezien de credits voor het ontwikkelen naar de ontwikkelaar daarvan gaat.",
+        "SettingBrandNameMaxLen": "Maximaal %skarkaters zijn toegestaan voor merk of product naam.",
+        "SettingBrandNameInvalidChar": "Het karakter %s is niet toegestaan om gebruikt te worden in de product of merk naam.",
+        "SettingRemoveLinksToMatomo": "Nieuw: Verwijder links naar matomo.org (experimenteel)",
+        "SettingRemoveLinksToMatomoDescription": "Indien ingeschakeld, worden alle links naar Matomo.org voor alle gebruikers, behalve de Super Users, verwijderd. Houd er rekening mee dat niet alle 100% links vervangen op dit moment vervangen worden aangezien een aantal links gegenereerd worden in de browser.",
+        "SettingHeaderFontColor": "Kop tekst kleur",
+        "SettingHeaderBackgroundColor": "Kop achtergrond kleur",
+        "SettingColorHelp": "Vul een hexadecimale kleur waarde in, bijvoorbeeld \"ffffff\".",
+        "SettingWhitelabelTrackingEndpoint": "Whitelabel tracking eindpunt",
+        "SettingWhitelabelTrackingEndpointDescription": "Indien ingeschakeld, \"piwik.js\" en \"piwik.php\" zullen worden vervangen door \"js\/tracker.php\" in de tracking code generator en ook wanneer de tracking code via de API wordt opgevraagd. Wanneer dit is ingeschakeld wordt er geadviseerd om te testen of de server verzoeken accepteert zoals %s",
+        "SettingMarketplaceOnlySuperUserTitle": "Toon de Matomo marketplace alleen aan Super Users",
+        "SettingMarketplaceOnlySuperUserDescription": "Standaard is de Matomo Marketplace zichtbaar voor alle ingelogde gebruikers. Wanneer je deze instelling activeert zal de Marketplace alleen beschikbaar zijn voor gebruikers met Super User rechten. Dit kan handig zijn wanneer je de Marketplace niet wilt tonen aan gebuikers, maar nog steeds in staat wil zijn om plugins van de Marketplace te installeren en bijwerken."
+    }
+}

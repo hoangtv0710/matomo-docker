@@ -1,0 +1,54 @@
+.MultiChannelConversionAttributionWidget {
+  .dataTableActions table.dataTable th.label {
+    min-width: 125px !important;
+  }
+
+  .goalAndDaysPrior {
+    margin-bottom: 0;
+  }
+
+  .modelSelection,
+  .goalAndDaysPrior {
+    max-width: 1500px;
+
+    > .col {
+      padding-left: 0;
+
+      .input-field {
+        margin-left: -0.75em;
+      }
+    }
+  }
+
+  .dataTable {
+    tr.subDataTable > td:first-child:before {
+      background: none !important;
+      display: none !important;
+    }
+
+    th.modelHead {
+      font-weight: bold;
+      font-size: 12px;
+      text-align: center;
+      text-transform: none !important;
+      cursor: help;
+    }
+
+    th.modelHead,
+    th.attributionOdd,
+    td.attributionOdd {
+      border-left: 1px solid #bbb !important;
+      border-left-color: #bbb !important;
+      padding-left: 21px !important;
+    }
+
+    .negativeEvolution {
+      color: #e02a3b;
+      opacity: 0.9;
+    }
+    .positiveEvolution {
+      color: #43a047;
+      opacity: 0.9;
+    }
+  }
+}

@@ -1,0 +1,85 @@
+<div class="heatmapList">
+    <div piwik-content-block content-title="{{ 'HeatmapSessionRecording_ManageHeatmaps'|translate }}">
+    <p>{{ 'HeatmapSessionRecording_HeatmapUsageBenefits'|translate }}</p>
+
+    <div>
+        <div piwik-field uicontrol="select" name="filterStatus"
+             class="filterStatus"
+             full-width="true"
+             title="{{'HeatmapSessionRecording_Filter'|translate }}"
+             ng-change="hsrList.model.onFilterStatusChange()"
+             ng-model="hsrList.model.filterStatus"
+             options='hsrList.model.statusOptions'>
+        </div>
+        <div piwik-field uicontrol="text" name="hsrSearch" ng-model="hsrList.searchFilter"
+             class="hsrSearchFilter"
+             full-width="true"
+             ng-show="(hsrList.model.hsrs|length) > 0"
+             data-title="{{ 'General_Search'|translate }}">
+        </div>
+    </div>
+
+    <table piwik-content-table>
+        <thead>
+            <tr>
+                <th class="index">{{ 'General_Id'|translate }}</th>
+                <th class="name">{{ 'General_Name'|translate }}</th>
+                <th class="creationDate">{{ 'HeatmapSessionRecording_CreationDate'|translate }}</th>
+                <th class="sampleLimit">{{ 'HeatmapSessionRecording_SampleLimit'|translate }}</th>
+                <th class="status">{{ 'CorePluginsAdmin_Status'|translate }}</th>
+                <th class="action">{{ 'General_Actions'|translate }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr ng-show="hsrList.model.isLoading || hsrList.model.isUpdating">
+            <td colspan="7">
+                <span class="loadingPiwik"><img src="plugins/Morpheus/images/loading-blue.gif"/> {{ 'General_LoadingData'|translate }}</span>
+            </td>
+        </tr>
+        <tr ng-show="!hsrList.model.isLoading && (hsrList.model.hsrs|length) == 0">
+            <td colspan="7">
+                {{ 'HeatmapSessionRecording_NoHeatmapsFound'|translate }}
+            </td>
+        </tr>
+        <tr ng-repeat="hsr in hsrList.model.hsrs|filter:hsrList.searchFilter|orderBy:'idsitehsr':true"
+            id="hsr{{ hsr.idsitehsr }}"
+            class="hsrs">
+            <td class="index">{{ hsr.idsitehsr }}</td>
+            <td class="name">{{ hsr.name }}</td>
+            <td class="creationDate">{{ hsr.created_date_pretty }}</td>
+            <td class="sampleLimit">{{ hsr.sample_limit }}</td>
+            <td class="status">{{ hsr.status|ucfirst }}</td>
+            <td class="action">
+                <a ng-click="hsrList.editHsr(hsr.idsitehsr)" class="table-action icon-edit" title="{{ 'HeatmapSessionRecording_EditX'|translate:('HeatmapSessionRecording_Heatmap'|translate) }}"></a>
+                <a a ng-click="hsrList.completeHsr(hsr)" class="table-action stopRecording" title="{{ 'HeatmapSessionRecording_StopX'|translate:('HeatmapSessionRecording_Heatmap'|translate) }}"
+                   ng-show="hsr.status != 'ended'"
+                    >&#9632;</a>
+                <a ng-href="?module=Widgetize&action=iframe&moduleToWidgetize=HeatmapSessionRecording&actionToWidgetize=showHeatmap&idSiteHsr={{ hsr.idsitehsr }}&idSite={{hsr.idsite}}&period=day&date=yesterday"
+                   target="_blank"
+                   title="{{ 'HeatmapSessionRecording_ViewReport'|translate }}"
+                   class="table-action icon-show"></a>
+                <a ng-click="hsrList.deleteHsr(hsr)" class="table-action icon-delete"
+                   title="{{ 'HeatmapSessionRecording_DeleteX'|translate:('HeatmapSessionRecording_Heatmap'|translate) }}"
+                ></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="tableActionBar">
+        <a class="createNewHsr" value="" ng-click="hsrList.createHsr()"
+        ><span class="icon-add"></span> {{ 'HeatmapSessionRecording_CreateNewHeatmap'|translate }}</a>
+    </div>
+    </div>
+
+    <div class="ui-confirm" id="confirmDeleteHeatmap">
+        <h2>{{ 'HeatmapSessionRecording_DeleteHeatmapConfirm'|translate }} </h2>
+        <input role="yes" type="button" value="{{ 'General_Yes'|translate }}"/>
+        <input role="no" type="button" value="{{ 'General_No'|translate }}"/>
+    </div>
+    <div class="ui-confirm" id="confirmEndHeatmap">
+        <h2>{{ 'HeatmapSessionRecording_EndHeatmapConfirm'|translate }} </h2>
+        <input role="yes" type="button" value="{{ 'General_Yes'|translate }}"/>
+        <input role="no" type="button" value="{{ 'General_No'|translate }}"/>
+    </div>
+</div>

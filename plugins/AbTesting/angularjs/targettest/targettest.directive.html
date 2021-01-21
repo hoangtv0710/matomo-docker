@@ -1,0 +1,20 @@
+<div class="form-group targetTest">
+    <label><strong>{{ 'AbTesting_TargetPageTestTitle'|translate }}:</strong> {{ 'AbTesting_TargetPageTestLabel'|translate }}</label>
+
+    <input type="text" ng-model="targetTest.url"
+           id="urltargettest"
+           ng-class="{'invalid': targetTest.url && !targetTest.matches && targetTest.isValid}"
+           ng-change="onUrlChange()" placeholder="http://www.example.com/">
+
+    <div>
+        <span ng-show="targetTest.url && !targetTest.isValid" class="testInfo">
+            {{ 'AbTesting_TargetPageTestErrorInvalidUrl'|translate }}
+        </span>
+        <span ng-show="targetTest.url && targetTest.matches && targetTest.isValid" class="testInfo matches">
+            {{ 'AbTesting_TargetPageTestUrlMatches'|translate }}
+        </span>
+        <span ng-show="targetTest.url && !targetTest.matches && targetTest.isValid" class="testInfo notMatches">
+            {{ 'AbTesting_TargetPageTestUrlNotMatches'|translate }}
+        </span>
+    </div>
+</div>

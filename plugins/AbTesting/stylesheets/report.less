@@ -1,0 +1,102 @@
+.uiTest {
+  .reportDuration {
+    display: none;
+  }
+}
+
+#abtestPeriod {
+  display: none;
+}
+
+.experimentSummary {
+  margin-top: 10px;
+}
+
+.top_controls {
+  #abtestPeriod {
+    display: inline-block;
+    border: 0 solid !important;
+    box-shadow: 0 0 !important;
+    background-color: inherit !important;
+    cursor: text;
+    span {
+      cursor: text;
+    }
+  }
+}
+
+[data-table-type="AbTestDataTable"] .datatableFooterMessage.alert {
+  max-width: 600px;
+}
+
+.dataTable[data-report="AbTesting.getMetricsOverview"] {
+  tr td.label.column {
+    width: 200px !important;
+  }
+
+  .totalOverviewRow {
+    font-weight: bold;
+
+    .ratio {
+      display: none !important;
+    }
+  }
+}
+.dataTable[data-report="AbTesting.getMetricDetails"] {
+  tr.isWinner td.column {
+    color: #43a047 !important;
+  }
+  tr.isLoser td.column {
+    color: #D4291F !important;
+  }
+  tr.isSignificant td.column {
+    color: #f57c00 !important;
+  }
+
+  .datatableFooterMessage {
+    &.alert-success {
+      color: #43a047 !important;
+    }
+    &.alert-danger {
+      color: #D4291F !important;
+    }
+    &.alert-warning {
+      color: #f57c00 !important;
+    }
+  }
+}
+
+.abTestingReportPreview {
+    opacity: 0.6;
+}
+
+.visitorType {
+  float: left;
+  margin-right: 8px;
+}
+
+.log-experiments {
+  border: 1px solid #D8D8D8;
+  color: #474747;
+  border-radius: 3px;
+  padding: 3px 5px;
+  display: inline-block;
+  margin-top: 4px;
+
+  .abtestingicon-lab {
+    top: 1px;
+    position: relative;
+  }
+}
+
+.visitor-profile-visit-details {
+  .log-experiments {
+    float: left;
+    margin-right: 15px;
+    margin-top: 1px;
+    vertical-align: middle;
+    padding: 1px 5px;
+    height: 25px;
+    box-sizing: border-box;
+  }
+}

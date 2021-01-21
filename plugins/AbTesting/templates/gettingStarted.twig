@@ -1,0 +1,21 @@
+<div class="alert alert-info">
+    {% if isAdmin %}
+        <p>{{ 'AbTesting_NoActiveExperiment'|translate }} {{ 'AbTesting_HowToGetStartedAdminAccess'|translate('<a href="' ~ linkTo({'module':"AbTesting", 'action':"manage"}) ~ '">', '</a>')|raw }}</p>
+    {% else %}
+        <p>{{ 'AbTesting_NoActiveExperiment'|translate }} {{ 'AbTesting_HowToGetStartedUserAccess'|translate }}</p>
+    {% endif %}
+
+    <p>
+        {{  'AbTesting_ManageExperimentsIntroduction'|translate }}
+    </p>
+</div>
+
+<h3>{{ 'AbTesting_Preview'|translate }}</h3>
+
+<img title="{{ 'AbTesting_ExperimentReportPreview'|translate|e('html_attr') }}"
+     height="220"
+     src="plugins/AbTesting/images/0_Report.png" class="abTestingReportPreview">
+
+{% if isAdmin %}
+    <div piwik-check-for-active-experiments></div>
+{% endif %}

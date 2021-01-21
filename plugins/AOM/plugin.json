@@ -1,0 +1,32 @@
+{
+    "name": "AOM",
+    "version": "1.4.4",
+    "keywords": [
+        "Advertising",
+        "Google AdWords",
+        "Microsoft Bing",
+        "Criteo",
+        "Facebook Ads",
+        "Marketing",
+        "Online-Marketing",
+        "Performance-Marketing",
+        "Taboola"
+    ],
+    "homepage": "http://www.advanced-online-marketing.com",
+    "description": "Integrate additional data like costs and campaign names from advertising platforms like AdWords, Bing, Criteo, Facebook, Taboola as well as your individual campaigns into Piwik.",
+    "license": "GPL v3+",
+    "authors": [
+        {
+            "name": "Daniel Stonies",
+            "email": "daniel.stonies@googlemail.com"
+        }, {
+            "name": "André Kolell",
+            "email": "andre.kolell@gmail.com",
+            "homepage": "http://www.andrekolell.de"
+        }
+    ],
+    "require": {
+        "piwik": ">=3.0.0,<4.0.0",
+        "php": ">=5.5.9"
+    }
+}

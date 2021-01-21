@@ -1,0 +1,26 @@
+{
+    "name": "Funnels",
+    "description": "Identify and understand where your visitors drop off to increase your conversions, sales and revenue with your existing traffic.",
+    "version": "3.1.22",
+    "theme": false,
+    "require": {
+        "piwik": ">=3.0.0-b5,<4.0.0-b1"
+    },
+    "authors": [
+        {
+            "name": "InnoCraft",
+            "email": "contact@innocraft.com",
+            "homepage": "https:\/\/www.innocraft.com"
+        }
+    ],
+    "price": {
+        "base": 175
+    },
+      "preview": {
+    "video_url": "https://www.youtube-nocookie.com/embed/Ljx7-QdcEQY",
+    "demo_url": "https://demo.matomo.org/index.php?module=CoreHome&action=index&idSite=62&period=day&date=yesterday#?idSite=62&period=day&date=yesterday&category=Funnels_Funnels&subcategory=General_Overview"
+  },
+    "homepage": "https:\/\/plugins.matomo.org\/Funnels",
+    "license": "InnoCraft EULA",
+    "keywords": ["funnel", "goal", "tracking", "piwik", "matomo", "cro", "conversion", "optimization", "marketing"]
+}

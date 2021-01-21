@@ -1,0 +1,33 @@
+{% extends 'empty.twig' %}
+
+{% set title=('HeatmapSessionRecording_ReplayX'|translate('HeatmapSessionRecording_SessionRecording'|translate)) %}
+
+{% block content %}
+    <!DOCTYPE html>
+
+    <html><head>
+    <script type="text/javascript" src="{{ jQueryPath|e('html_attr') }}"></script>
+    <script type="text/javascript">
+        if ('undefined' === typeof window.$) {
+            window.$ = jQuery; //WordPress
+        }
+    </script>
+    <script type="text/javascript" src="{{ pathPrefix|e('html_attr') }}/HeatmapSessionRecording/libs/MutationObserver.js/MutationObserver.js"></script>
+    <script type="text/javascript" src="{{ pathPrefix|e('html_attr') }}/HeatmapSessionRecording/libs/mutation-summary/src/mutation-summary.js"></script>
+    <script type="text/javascript" src="{{ pathPrefix|e('html_attr') }}/HeatmapSessionRecording/libs/mutation-summary/util/tree-mirror.js"></script>
+    <script type="text/javascript" src="{{ pathPrefix|e('html_attr') }}/HeatmapSessionRecording/libs/svg.js/dist/svg.min.js"></script>
+    <script type="text/javascript" src="{{ pathPrefix|e('html_attr') }}/HeatmapSessionRecording/javascripts/recording.js"></script>
+    <script type="text/javascript">
+        window.recordingFrame = new HsrRecordingIframe({{ baseUrl|json_encode|raw }});
+        if (!window.recordingFrame.isSupportedBrowser()) {
+            var notSupportedMessage = {{ 'HeatmapSessionRecording_NotSupportedBrowser'|translate|json_encode|raw }};
+            {# we are not writing < body >...< / bo dy> in one string cause some servers might have regex or string replace on < / bo dy > #}
+            $('html').append('<' + 'body' + '><div style="color:red; margin: 20px; font-size: 20px;font-weight:bold;">' + notSupportedMessage + '</div><' + '/' + 'body' + '>');
+        } else {
+            window.recordingFrame.initialMutation(JSON.parse( {{ initialMutation|json_encode|raw }}));
+        }
+    </script>
+    </head>
+    </html>
+
+{% endblock %}

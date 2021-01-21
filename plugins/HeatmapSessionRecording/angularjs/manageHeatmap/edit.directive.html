@@ -1,0 +1,126 @@
+<div class="editHsr"
+     piwik-content-block
+     content-title="{{ editHsr.editTitle|translate:(editHsr.siteHsr.name ? ('&quot;' + editHsr.siteHsr.name + '&quot;') : '') }}">
+
+    <p ng-show="editHsr.model.isLoading">
+        <span class="loadingPiwik"><img src="plugins/Morpheus/images/loading-blue.gif"/> {{ 'General_LoadingData'|translate }}</span>
+    </p>
+
+    <p ng-show="editHsr.model.isUpdating">
+        <span class="loadingPiwik"><img src="plugins/Morpheus/images/loading-blue.gif"/> {{ 'HeatmapSessionRecording_UpdatingData'|translate }}</span>
+    </p>
+
+    <form ng-submit="editHsr.edit ? editHsr.updateHsr() : editHsr.createHsr()">
+        <div>
+            <div piwik-field uicontrol="text" name="name"
+                 ng-model="editHsr.siteHsr.name"
+                 maxlength="50"
+                 placeholder="{{ 'HeatmapSessionRecording_FieldNamePlaceholder'|translate }}"
+                 ng-change="editHsr.setValueHasChanged()"
+                 data-title="{{ 'General_Name'|translate }}"
+                 inline-help="{{ 'HeatmapSessionRecording_HeatmapNameHelp'|translate }}">
+            </div>
+
+            <div piwik-field uicontrol="select" name="sampleLimit"
+                 ng-model="editHsr.siteHsr.sample_limit"
+                 ng-change="editHsr.setValueHasChanged()"
+                 data-title="{{ 'HeatmapSessionRecording_HeatmapSampleLimit'|translate }}"
+                 options="editHsr.sampleLimits"
+                 inline-help="{{ 'HeatmapSessionRecording_HeatmapSampleLimitHelp'|translate }}">
+            </div>
+
+            <div class="form-group row">
+
+                <div class="col s12">
+                    <h3>{{ 'HeatmapSessionRecording_TargetPage'|translate }}:</h3>
+                </div>
+
+                <div class="col s12 m6" style="padding-left: 0;">
+                    <div ng-repeat="(index, url) in editHsr.siteHsr.match_page_rules" class="matchPageRules {{ index }} multiple">
+
+                        <div piwik-hsr-url-target
+                             url-target="editHsr.siteHsr.match_page_rules[index]"
+                             on-add-url="editHsr.addMatchPageRule()"
+                             on-remove-url="editHsr.removeMatchPageRule(index)"
+                             on-any-change="editHsr.setValueHasChanged()"
+                             allow-any="0"
+                             disable-if-no-value="index > 0"
+                             can-be-removed="index > 0"
+                        ></div>
+                        <hr />
+
+                    </div>
+                </div>
+
+                <div class="col s12 m6">
+                    <div class="form-help">
+                        <span class="inline-help">
+                            {{ 'HeatmapSessionRecording_FieldIncludedTargetsHelp'|translate }}
+
+                            <div piwik-hsr-target-test
+                                 included-targets="editHsr.siteHsr.match_page_rules"></div>
+
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div piwik-field uicontrol="select" name="sampleRate"
+                 ng-model="editHsr.siteHsr.sample_rate"
+                 ng-change="editHsr.setValueHasChanged()"
+                 options="editHsr.sampleRates"
+                 introduction="{{ 'HeatmapSessionRecording_AdvancedOptions'|translate }}"
+                 data-title="{{ 'HeatmapSessionRecording_SampleRate'|translate }}"
+                 inline-help="{{ 'HeatmapSessionRecording_HeatmapSampleRateHelp'|translate }}">
+            </div>
+
+            <div piwik-field uicontrol="text" name="excludedElements"
+                 ng-model="editHsr.siteHsr.excluded_elements"
+                 ng-change="editHsr.setValueHasChanged()"
+                 data-title="{{ 'HeatmapSessionRecording_ExcludedElements'|translate }}"
+                 maxlength="1000"
+                 inline-help="{{ 'HeatmapSessionRecording_ExcludedElementsHelp'|translate }}">
+            </div>
+
+            <div piwik-field uicontrol="text" name="screenshotUrl"
+                 ng-model="editHsr.siteHsr.screenshot_url"
+                 ng-change="editHsr.setValueHasChanged()"
+                 maxlength="300"
+                 data-title="{{ 'HeatmapSessionRecording_ScreenshotUrl'|translate }}"
+                 data-disabled="!!editHsr.siteHsr.page_treemirror"
+                 inline-help="{{ 'HeatmapSessionRecording_ScreenshotUrlHelp'|translate }}">
+            </div>
+
+            <div piwik-field uicontrol="text" name="breakpointMobile"
+                 ng-model="editHsr.siteHsr.breakpoint_mobile"
+                 ng-change="editHsr.setValueHasChanged()"
+                 maxlength="4"
+                 data-title="{{ 'HeatmapSessionRecording_BreakpointX'|translate:('General_Mobile'|translate) }}"
+                 inline-help="{{ 'HeatmapSessionRecording_BreakpointGeneralHelp'|translate }} {{ 'HeatmapSessionRecording_BreakpointGeneralHelpManage'|translate }}">
+            </div>
+
+            <div piwik-field uicontrol="text" name="breakpointTablet"
+                 ng-model="editHsr.siteHsr.breakpoint_tablet"
+                 ng-change="editHsr.setValueHasChanged()"
+                 maxlength="4"
+                 data-title="{{ 'HeatmapSessionRecording_BreakpointX'|translate:('DevicesDetection_Tablet'|translate) }}"
+                 inline-help="{{ 'HeatmapSessionRecording_BreakpointGeneralHelp'|translate }} {{ 'HeatmapSessionRecording_BreakpointGeneralHelpManage'|translate }}">
+            </div>
+
+            <p ng-bind-html="'HeatmapSessionRecording_PersonalInformationNote'|translate:('HeatmapSessionRecording_Heatmap'|translate):'<code>':'</code>':'<a href=\'https://developer.matomo.org/guides/heatmap-session-recording/setup#masking-content-on-your-website\' target=\'_blank\' rel=\'noreferrer noopener\'>':'</a>'"></p>
+
+            <div piwik-save-button
+                 class="createButton"
+                 onconfirm="editHsr.edit ? editHsr.updateHsr() : editHsr.createHsr()"
+                 data-disabled="editHsr.model.isUpdating || !editHsr.isDirty"
+                 value="{{ editHsr.edit ? ('CoreUpdater_UpdateTitle'|translate) : ('HeatmapSessionRecording_CreateNewHeatmap'|translate) }}"
+                 saving="editHsr.model.isUpdating">
+            </div>
+
+            <div class='entityCancel'>
+                <a ng-click="editHsr.cancel()">{{ 'General_Cancel'|translate }}</a>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,17 @@
+{
+    "WhiteLabel": {
+        "SettingBrandNameTitle": "Marca personalizada \/ nombre del producto",
+        "SettingBrandNameDescription": "Si es definido, el nombre de producto 'Matomo \/ Piwik' en la UI será reemplazado en su mayoría con su nombre de marca. No será reemplazado en las páginas de ayuda, complementos y páginas de tema, las cuales son sólo visibles por aquellos con atributo de super usuario. También no será reemplazado en el MarketPlace, por el motivos de seguir dándoles créditos a cada creador de cada uno de los complementos.",
+        "SettingBrandNameMaxLen": "Un máximo de %s caracteres permitidos para el nombre de la marca \/ producto.",
+        "SettingBrandNameInvalidChar": "El caracter %s no está permitido para ser usado sea para un producto o nombre de marca.",
+        "SettingRemoveLinksToMatomo": "Nuevo: Quitar enlaces hacia matomo.org (experimental)",
+        "SettingRemoveLinksToMatomoDescription": "Si es habilitado, quitará los enlaces a matomo.org para todos los usuarios, excepto aquellos Super Usuarios. Por favor tenga en cuenta que ni en un 100% no serán reemplazados todos los enlaces en esta etapa en tanto algunos de ellos son generados desde el navegador, por lo tanto, todavía podrían ser mostrados.",
+        "SettingHeaderFontColor": "Color de la fuente de la cabecera",
+        "SettingHeaderBackgroundColor": "Color de fondo de la cabecera",
+        "SettingColorHelp": "Por favor ingrese el valor hexadecimal del color, por ejemplo \"ffffff\".",
+        "SettingWhitelabelTrackingEndpoint": "Punto final del seguimiento para la marca blanca",
+        "SettingWhitelabelTrackingEndpointDescription": "Si es habilitado, \"piwik.js\" y \"piwik.php\" serán reemplazados por \"js\/tracker.php\" en el generador de código de seguimiento y también cuando éste sea solicitado vía la API. Cuando habilite esta función, es recomendable que ponga a compruebe que su servidor permite peticiones ej %s",
+        "SettingMarketplaceOnlySuperUserTitle": "Mostrar Marketplace sólo a Super Usuarios",
+        "SettingMarketplaceOnlySuperUserDescription": "De manera predeterminada, el Marketplace es visible para todo usuario que inició sesión. Cuando habilita este ajuste, la página del Marketplace sólo será visible a aquellos usuarios con atributos de Super Usuario. Esto puede ser útil si no desea mostrar el Marketplace a sus usuarios pero aun puede instalar o actualizar complementos fácilmente desde el Marketplace."
+    }
+}
